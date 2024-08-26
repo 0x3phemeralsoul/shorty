@@ -25,9 +25,10 @@ users.set('656f49bd-1c7a-42bb-874e-2a028317b06b', '@1157492699415457892'); // od
 users.set('64d0f1b4-991e-4d95-b3fe-521a7cd53e04', '@1138099723807494295'); // p3th1um
 
 // Endpoint to receive webhook events
-app.post('/webhook', async (req, res) => {
+app.post('/', async (req, res) => {
   const event = req.body;
-  const primary_id = event.primary_id;
+  const primary_id = event.actions[0].id;
+  console.log('primary_id' , primary_id)
 
   try {
     // Fetch the story details using Shortcut API
@@ -43,6 +44,7 @@ app.post('/webhook', async (req, res) => {
     const story_name = story_data.name;
     const workflow_id = story_data.workflow_id;
     const workflow_state_id = story_data.workflow_state_id;
+   
 
     if (workflow_id == 500000183 && workflow_state_id == 500000189) {
       let task_owners = story_data.tasks.map(task => task.owner_ids[0]);
