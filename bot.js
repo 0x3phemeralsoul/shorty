@@ -3,6 +3,7 @@ require('dotenv').config(); // Load environment variables from .env
 const { Client, GatewayIntentBits } = require('discord.js');
 const express = require('express');
 const axios = require('axios');
+const winston = require('winston');
 
 // Initialize Discord bot
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
@@ -11,6 +12,19 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBit
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 const DISCORD_CHANNEL_ID = process.env.DISCORD_CHANNEL_ID;
 const SHORTCUT_API_TOKEN = process.env.SHORTCUT_API_TOKEN;
+
+// Configure winston for logging
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.printf(({ timestamp, level, message }) => `${timestamp} [${level}]: ${message}`)
+  ),
+  transports: [
+    new winston.transports.Console(), // Logs to console
+    new winston.transports.File({ filename: 'app.log' }) // Logs to file
+  ]
+});
 
 // Initialize Express server for webhook
 const app = express();
@@ -28,7 +42,8 @@ users.set('64d0f1b4-991e-4d95-b3fe-521a7cd53e04', '@1138099723807494295'); // p3
 app.post('/', async (req, res) => {
   const event = req.body;
   const primary_id = event.actions[0].id;
-  console.log('primary_id' , primary_id)
+
+  logger.info(`Received webhook event for story ID: ${primary_id}`);
 
   try {
     // Fetch the story details using Shortcut API
@@ -44,9 +59,10 @@ app.post('/', async (req, res) => {
     const story_name = story_data.name;
     const workflow_id = story_data.workflow_id;
     const workflow_state_id = story_data.workflow_state_id;
-   
 
     if (workflow_id == 500000183 && workflow_state_id == 500000189) {
+      logger.info(`Story "${story_name}" is ready for review. Workflow state ID: ${workflow_state_id}`);
+
       let task_owners = story_data.tasks.map(task => task.owner_ids[0]);
       let discord_mentions = task_owners.map(owner => `<${users.get(owner)}>`);
       
@@ -55,12 +71,15 @@ app.post('/', async (req, res) => {
       const channel = await client.channels.fetch(DISCORD_CHANNEL_ID);
       channel.send(message);
 
+      logger.info(`Sent message to Discord channel ${DISCORD_CHANNEL_ID}: ${message}`);
+
       res.status(200).send('Event processed');
     } else {
+      logger.info(`Story "${story_name}" does not meet the criteria for notification.`);
       res.status(200).send('No action required');
     }
   } catch (error) {
-    console.error('Error processing event:', error);
+    logger.error('Error processing event:', error);
     res.status(500).send('Internal Server Error');
   }
 });
@@ -68,8 +87,12 @@ app.post('/', async (req, res) => {
 // Start the Express server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
+  logger.info(`Server is listening on port ${PORT}`);
 });
 
 // Log in to Discord with your bot token
-client.login(DISCORD_TOKEN);
+client.login(DISCORD_TOKEN).then(() => {
+  logger.info('Logged in to Discord successfully');
+}).catch(err => {
+  logger.error('Error logging in to Discord:', err);
+});
