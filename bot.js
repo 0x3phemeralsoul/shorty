@@ -12,10 +12,11 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBit
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 const DISCORD_CHANNEL_ID = process.env.DISCORD_CHANNEL_ID;
 const SHORTCUT_API_TOKEN = process.env.SHORTCUT_API_TOKEN;
+const LOGGER_LEVEL= process.env.LOGGER_LEVEL
 
 // Configure winston for logging
 const logger = winston.createLogger({
-  level: 'info',
+  level: LOGGER_LEVEL,
   format: winston.format.combine(
     winston.format.timestamp(),
     winston.format.printf(({ timestamp, level, message }) => `${timestamp} [${level}]: ${message}`)
@@ -40,48 +41,66 @@ users.set('64d0f1b4-991e-4d95-b3fe-521a7cd53e04', '@1138099723807494295'); // p3
 
 // Endpoint to receive webhook events
 app.post('/', async (req, res) => {
-  const event = req.body;
-  const primary_id = event.actions[0].id;
+    const event = req.body;
+    const primary_id = event.actions[0].id;
+    let in_review_workflow_state_id = 0
 
-  logger.info(`Received webhook event for story ID: ${primary_id}`);
-
-  try {
-    // Fetch the story details using Shortcut API
-    const story = await axios.get(`https://api.app.shortcut.com/api/v3/stories/${primary_id}`, {
-      headers: {
-        "Shortcut-Token": SHORTCUT_API_TOKEN,
-        "Content-Type": "application/json"
-      }
-    });
-
-    const story_data = story.data;
-    const story_url = story_data.app_url;
-    const story_name = story_data.name;
-    const workflow_id = story_data.workflow_id;
-    const workflow_state_id = story_data.workflow_state_id;
-
-    if (workflow_id == 500000183 && workflow_state_id == 500000189) {
-      logger.info(`Story "${story_name}" is ready for review. Workflow state ID: ${workflow_state_id}`);
-
-      let task_owners = story_data.tasks.map(task => task.owner_ids[0]);
-      let discord_mentions = task_owners.map(owner => `<${users.get(owner)}>`);
-      
-      let message = `The story [${story_name}](${story_url}) is ready for review by ${discord_mentions.join(', ')}`;
-      
-      const channel = await client.channels.fetch(DISCORD_CHANNEL_ID);
-      channel.send(message);
-
-      logger.info(`Sent message to Discord channel ${DISCORD_CHANNEL_ID}: ${message}`);
-
-      res.status(200).send('Event processed');
-    } else {
-      logger.info(`Story "${story_name}" does not meet the criteria for notification.`);
-      res.status(200).send('No action required');
+    
+    if('changes' in event.actions[0]&& 'workflow_state_id' in event.actions[0].changes){
+        in_review_workflow_state_id = event.actions[0].changes.workflow_state_id.new
     }
-  } catch (error) {
-    logger.error('Error processing event:', error);
-    res.status(500).send('Internal Server Error');
-  }
+
+    if (in_review_workflow_state_id == 500000189){
+
+        logger.info(`Received webhook event for story ID: ${primary_id}`);
+
+        try {
+            // Fetch the story details using Shortcut API
+            const story = await axios.get(`https://api.app.shortcut.com/api/v3/stories/${primary_id}`, {
+            headers: {
+                "Shortcut-Token": SHORTCUT_API_TOKEN,
+                "Content-Type": "application/json"
+            }
+            });
+
+            const story_data = story.data;
+            console.log(story_data)
+            const story_url = story_data.app_url;
+            const story_name = story_data.name;
+            const workflow_id = story_data.workflow_id;
+            const workflow_state_id = story_data.workflow_state_id;
+            let deadline = null
+            if(story_data.deadline != null){
+                deadline = story_data.deadline.split("T", 1)[0];
+            }
+
+            if (workflow_id == 500000183 && workflow_state_id == 500000189) {
+                logger.info(`Story "${story_name}" is ready for review. Workflow state ID: ${workflow_state_id}`);
+
+                let task_owners = story_data.tasks.map(task => task.owner_ids[0]);
+                let discord_mentions = task_owners.map(owner => `<${users.get(owner)}>`);
+                let message = ''
+                if(deadline != null){
+                    message = `The story [${story_name}](${story_url}) is ready for review by ${discord_mentions.join(', ')}. :bangbang:**Story Due Date**: ${deadline} :bangbang: so the review should be in sooner than that! :exploding_head:`;
+                }else{
+                    message = `The story [${story_name}](${story_url}) is ready for review by ${discord_mentions.join(', ')}`;
+                }
+                const channel = await client.channels.fetch(DISCORD_CHANNEL_ID);
+                channel.send(message);
+
+                logger.info(`Sent message to Discord channel ${DISCORD_CHANNEL_ID}: ${message}`);
+
+                res.status(200).send('Event processed');
+            } else {
+                logger.info(`Story "${story_name}" does not meet the criteria for notification.`);
+                res.status(200).send('No action required');
+            }
+
+        } catch (error) {
+            logger.error('Error processing event:', error);
+            res.status(500).send('Internal Server Error');
+        }
+    }
 });
 
 // Start the Express server

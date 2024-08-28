@@ -5,3 +5,157 @@
 2024-08-26T17:05:55.812Z [info]: Received webhook event for story ID: 2022
 2024-08-26T17:05:56.629Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
 2024-08-26T17:05:56.631Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-27T08:27:31.796Z [info]: Received webhook event for story ID: 2224
+2024-08-27T08:27:32.404Z [error]: Error processing event: Request failed with status code 404
+2024-08-27T11:49:48.431Z [info]: Received webhook event for story ID: 2225
+2024-08-27T11:49:49.037Z [error]: Error processing event: Request failed with status code 404
+2024-08-27T14:18:15.903Z [info]: Received webhook event for story ID: 2216
+2024-08-27T14:18:16.531Z [info]: Story "Spell Sept 5th" does not meet the criteria for notification.
+2024-08-27T14:18:16.930Z [info]: Received webhook event for story ID: 2216
+2024-08-27T14:18:17.385Z [info]: Story "Spell Sept 5th" does not meet the criteria for notification.
+2024-08-27T15:37:28.110Z [info]: Received webhook event for story ID: 2226
+2024-08-27T15:37:28.782Z [info]: Story "Maintenance PR for Spell Spet 13th: Phase 1B" does not meet the criteria for notification.
+2024-08-27T15:37:52.379Z [info]: Received webhook event for story ID: 2226
+2024-08-27T15:37:52.834Z [info]: Story "Maintenance PR for Spell Spet 13th: Phase 1B" does not meet the criteria for notification.
+2024-08-27T15:38:05.242Z [info]: Received webhook event for story ID: 2213
+2024-08-27T15:38:05.787Z [info]: Story "As Dewiz, I want to rename the contracts to the final Brand name for the Tokens" does not meet the criteria for notification.
+2024-08-27T15:39:13.551Z [info]: Received webhook event for story ID: 2221
+2024-08-27T15:39:14.154Z [info]: Story "As a Dev, I want to rename the tokens referenced in `endgame-toolkit`" does not meet the criteria for notification.
+2024-08-27T15:40:56.526Z [info]: Received webhook event for story ID: 2213
+2024-08-27T15:40:57.249Z [info]: Story "As Dewiz, I want to rename the contracts to the final Brand name for the Tokens" does not meet the criteria for notification.
+2024-08-27T18:30:13.250Z [info]: Received webhook event for story ID: 2221
+2024-08-27T18:30:13.746Z [info]: Story "As a Dev, I want to rename the tokens referenced in `endgame-toolkit`" does not meet the criteria for notification.
+2024-08-27T18:30:23.211Z [info]: Received webhook event for story ID: 2228
+2024-08-27T18:30:23.956Z [error]: Error processing event: Request failed with status code 404
+2024-08-28T14:22:07.200Z [info]: Received webhook event for story ID: 2232
+2024-08-28T14:22:07.879Z [info]: Story "Review HackMD with Phase1b Spell Params" does not meet the criteria for notification.
+2024-08-28T14:34:35.915Z [info]: Received webhook event for story ID: 2022
+2024-08-28T14:34:37.138Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T14:34:37.141Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-28T14:35:34.064Z [info]: Received webhook event for story ID: 2022
+2024-08-28T14:35:34.690Z [info]: Story "Claim VAT Q1 at least" does not meet the criteria for notification.
+2024-08-28T14:35:36.226Z [info]: Received webhook event for story ID: 2022
+2024-08-28T14:35:36.809Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T14:35:36.810Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-28T14:40:22.180Z [info]: Received webhook event for story ID: 2022
+2024-08-28T14:40:22.759Z [info]: Story "Claim VAT Q1 at least" does not meet the criteria for notification.
+2024-08-28T14:40:23.483Z [info]: Received webhook event for story ID: 2022
+2024-08-28T14:40:24.453Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T14:40:24.454Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-28T14:41:19.688Z [info]: Received webhook event for story ID: 2022
+2024-08-28T14:41:20.507Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T14:41:20.507Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-28T14:41:20.709Z [info]: Received webhook event for story ID: 2022
+2024-08-28T14:41:21.471Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T14:41:21.472Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-28T14:41:25.073Z [info]: Server is listening on port 3000
+2024-08-28T14:41:26.088Z [info]: Logged in to Discord successfully
+2024-08-28T14:41:34.532Z [info]: Received webhook event for story ID: 2022
+2024-08-28T14:41:35.561Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T14:41:35.563Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-28T14:43:21.311Z [info]: Server is listening on port 3000
+2024-08-28T14:43:22.614Z [info]: Logged in to Discord successfully
+2024-08-28T14:43:27.493Z [info]: Received webhook event for story ID: 2022
+2024-08-28T14:43:28.182Z [debug]: Story API response
+2024-08-28T14:43:28.183Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T14:43:28.184Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-28T14:44:00.021Z [info]: Server is listening on port 3000
+2024-08-28T14:44:00.940Z [info]: Logged in to Discord successfully
+2024-08-28T14:44:08.136Z [info]: Received webhook event for story ID: 2022
+2024-08-28T14:44:08.905Z [debug]: Story API response
+2024-08-28T14:44:08.906Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T14:44:08.907Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-28T14:44:51.103Z [info]: Server is listening on port 3000
+2024-08-28T14:44:52.163Z [info]: Logged in to Discord successfully
+2024-08-28T14:45:06.020Z [info]: Received webhook event for story ID: 2022
+2024-08-28T14:45:06.603Z [debug]: Story API response
+2024-08-28T14:45:06.606Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T14:45:06.607Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-28T14:45:45.811Z [info]: Server is listening on port 3000
+2024-08-28T14:45:46.727Z [info]: Logged in to Discord successfully
+2024-08-28T14:45:49.607Z [info]: Received webhook event for story ID: 2022
+2024-08-28T14:45:50.169Z [debug]: Story API response "${story_data}"
+2024-08-28T14:45:50.169Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T14:45:50.170Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-28T14:46:05.460Z [info]: Server is listening on port 3000
+2024-08-28T14:46:06.446Z [info]: Logged in to Discord successfully
+2024-08-28T14:46:09.409Z [info]: Received webhook event for story ID: 2022
+2024-08-28T14:46:09.976Z [debug]: Story API response "[object Object]"
+2024-08-28T14:46:09.976Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T14:46:09.977Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-28T14:47:01.517Z [info]: Server is listening on port 3000
+2024-08-28T14:47:03.024Z [info]: Logged in to Discord successfully
+2024-08-28T14:47:08.047Z [info]: Received webhook event for story ID: 2022
+2024-08-28T14:47:08.607Z [error]: Error processing event: story_data.stringify is not a function
+2024-08-28T14:50:47.483Z [info]: Server is listening on port 3000
+2024-08-28T14:50:48.896Z [info]: Logged in to Discord successfully
+2024-08-28T14:50:58.095Z [info]: Server is listening on port 3000
+2024-08-28T14:50:59.514Z [info]: Logged in to Discord successfully
+2024-08-28T14:51:02.283Z [info]: Received webhook event for story ID: 2022
+2024-08-28T14:51:03.133Z [debug]: Story API response "[object Object]"
+2024-08-28T14:51:03.134Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T14:51:03.135Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-28T14:51:29.878Z [info]: Server is listening on port 3000
+2024-08-28T14:51:31.410Z [info]: Logged in to Discord successfully
+2024-08-28T14:51:35.150Z [info]: Received webhook event for story ID: 2022
+2024-08-28T14:51:35.887Z [debug]: Story API response "[object Object]"
+2024-08-28T14:51:35.887Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T14:51:35.888Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-28T14:51:56.640Z [info]: Server is listening on port 3000
+2024-08-28T14:51:58.108Z [info]: Logged in to Discord successfully
+2024-08-28T14:52:06.203Z [info]: Received webhook event for story ID: 2022
+2024-08-28T14:52:06.774Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T14:52:06.775Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-28T15:00:36.305Z [info]: Server is listening on port 3000
+2024-08-28T15:00:37.339Z [info]: Logged in to Discord successfully
+2024-08-28T15:01:01.888Z [info]: Server is listening on port 3000
+2024-08-28T15:01:02.820Z [info]: Logged in to Discord successfully
+2024-08-28T15:01:06.859Z [info]: Received webhook event for story ID: 2022
+2024-08-28T15:01:07.821Z [error]: Error processing event: Cannot read properties of null (reading 'split')
+2024-08-28T15:03:29.539Z [info]: Server is listening on port 3000
+2024-08-28T15:03:30.584Z [info]: Logged in to Discord successfully
+2024-08-28T15:04:36.696Z [info]: Server is listening on port 3000
+2024-08-28T15:04:37.624Z [info]: Logged in to Discord successfully
+2024-08-28T15:08:17.815Z [info]: Server is listening on port 3000
+2024-08-28T15:08:19.107Z [info]: Logged in to Discord successfully
+2024-08-28T15:08:25.181Z [info]: Received webhook event for story ID: 2022
+2024-08-28T15:08:25.785Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T15:08:25.786Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-28T15:08:48.999Z [info]: Received webhook event for story ID: 2022
+2024-08-28T15:08:49.473Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T15:08:49.474Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-28T15:09:06.528Z [info]: Received webhook event for story ID: 2022
+2024-08-28T15:09:07.109Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T15:09:07.109Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>
+2024-08-28T15:10:26.757Z [info]: Server is listening on port 3000
+2024-08-28T15:10:27.717Z [info]: Logged in to Discord successfully
+2024-08-28T15:10:31.366Z [info]: Received webhook event for story ID: 2022
+2024-08-28T15:10:31.952Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T15:10:31.953Z [error]: Error processing event: message is not defined
+2024-08-28T15:10:59.915Z [info]: Server is listening on port 3000
+2024-08-28T15:11:01.291Z [info]: Logged in to Discord successfully
+2024-08-28T15:11:05.610Z [info]: Received webhook event for story ID: 2022
+2024-08-28T15:11:06.186Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T15:11:06.188Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>. DUE DATE: 2024-08-27
+2024-08-28T15:11:52.925Z [info]: Server is listening on port 3000
+2024-08-28T15:11:54.512Z [info]: Logged in to Discord successfully
+2024-08-28T15:11:57.921Z [info]: Received webhook event for story ID: 2022
+2024-08-28T15:11:58.494Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T15:11:58.495Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>. **Story Due Date**: 2024-08-27 so the review should be in sooner than that! :O
+2024-08-28T15:12:37.631Z [info]: Server is listening on port 3000
+2024-08-28T15:12:38.884Z [info]: Logged in to Discord successfully
+2024-08-28T15:12:39.891Z [info]: Received webhook event for story ID: 2022
+2024-08-28T15:12:40.456Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T15:12:40.457Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>. **Story Due Date**: 2024-08-27 so the review should be in sooner than that! :exploding_head:
+2024-08-28T15:13:14.208Z [info]: Server is listening on port 3000
+2024-08-28T15:13:15.183Z [info]: Logged in to Discord successfully
+2024-08-28T15:13:18.572Z [info]: Received webhook event for story ID: 2022
+2024-08-28T15:13:19.179Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T15:13:19.180Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>. :bangbang:**Story Due Date**: 2024-08-27 :bangbang: so the review should be in sooner than that! :exploding_head:
+2024-08-28T15:17:18.710Z [info]: Server is listening on port 3000
+2024-08-28T15:17:20.077Z [info]: Logged in to Discord successfully
+2024-08-28T15:18:21.084Z [info]: Server is listening on port 3000
+2024-08-28T15:18:22.030Z [info]: Logged in to Discord successfully
+2024-08-28T15:18:44.251Z [info]: Received webhook event for story ID: 2022
+2024-08-28T15:18:44.920Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-28T15:18:44.922Z [info]: Sent message to Discord channel 1277602082630795335: The story [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064>. :bangbang:**Story Due Date**: 2024-08-27 :bangbang: so the review should be in sooner than that! :exploding_head:
