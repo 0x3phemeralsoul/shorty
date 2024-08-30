@@ -28,6 +28,24 @@ const logger = winston.createLogger({
   ]
 });
 
+// Function to handle login with retry mechanism
+async function loginWithRetry(client, retries = 0) {
+    try {
+        await client.login(DISCORD_TOKEN);
+        logger.info('Logged in to Discord successfully');
+    } catch (err) {
+        if (retries < MAX_RETRIES) {
+            logger.warn(`Login attempt ${retries + 1} failed. Retrying in ${RETRY_DELAY / 1000} seconds...`);
+            retries += 1;
+            await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
+            await loginWithRetry(client, retries);
+        } else {
+            logger.error('Max login attempts reached. Failed to log in to Discord:', err);
+            process.exit(1); // Exit the process with an error code
+        }
+    }
+}
+
 // Initialize Express server for webhook
 const app = express();
 app.use(express.json());
@@ -122,9 +140,5 @@ app.listen(PORT, () => {
   logger.info(`Server is listening on port ${PORT}`);
 });
 
-// Log in to Discord with your bot token
-client.login(DISCORD_TOKEN).then(() => {
-  logger.info('Logged in to Discord successfully');
-}).catch(err => {
-  logger.error('Error logging in to Discord:', err);
-});
+// Start the login process with retries
+loginWithRetry(client);

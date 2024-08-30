@@ -259,3 +259,9 @@
 2024-08-30T07:40:41.381Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
 2024-08-30T07:40:41.384Z [info]: Last PR is "https://github.com/makerdao/dss-cron/pull/33"
 2024-08-30T07:40:41.384Z [info]: Sent message to Discord channel 1277602082630795335: [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064> [PR](<https://github.com/makerdao/dss-cron/pull/33>) :bangbang:**Story Due Date** is 2024-08-28 :bangbang: so the review should be in sooner than that! :exploding_head:
+2024-08-30T07:45:39.217Z [info]: Server is listening on port 3000
+2024-08-30T07:45:40.954Z [info]: Logged in to Discord successfully
+2024-08-30T07:46:14.086Z [info]: Received webhook event for story ID: 2022
+2024-08-30T07:46:14.903Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-08-30T07:46:14.907Z [info]: Last PR is "https://github.com/makerdao/dss-cron/pull/33"
+2024-08-30T07:46:14.908Z [info]: Sent message to Discord channel 1277602082630795335: [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064> Link to [PR](<https://github.com/makerdao/dss-cron/pull/33>)
