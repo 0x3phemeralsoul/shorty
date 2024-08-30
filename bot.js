@@ -98,7 +98,6 @@ app.post('/', async (req, res) => {
 
                 let task_owners = story_data.tasks.map(task => task.owner_ids[0]);
                 let discord_mentions = task_owners.map(owner => `<${users.get(owner)}>`);
-                console.log('comments', story_data.comments)
                 let last_pr = extractGitHubPullRequestUrls(getComments(story_data.comments))
                 
                 if (last_pr.length != 0){
