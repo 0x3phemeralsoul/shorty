@@ -1,4 +1,5 @@
 require('dotenv').config(); // Load environment variables from .env
+const {extractGitHubPullRequestUrls, getComments} = require('./pr');
 
 const { Client, GatewayIntentBits } = require('discord.js');
 const express = require('express');
@@ -64,7 +65,7 @@ app.post('/', async (req, res) => {
             });
 
             const story_data = story.data;
-            console.log(story_data)
+            //console.log(story_data)
             const story_url = story_data.app_url;
             const story_name = story_data.name;
             const workflow_id = story_data.workflow_id;
@@ -79,12 +80,24 @@ app.post('/', async (req, res) => {
 
                 let task_owners = story_data.tasks.map(task => task.owner_ids[0]);
                 let discord_mentions = task_owners.map(owner => `<${users.get(owner)}>`);
-                let message = ''
-                if(deadline != null){
-                    message = `The story [${story_name}](${story_url}) is ready for review by ${discord_mentions.join(', ')}. :bangbang:**Story Due Date**: ${deadline} :bangbang: so the review should be in sooner than that! :exploding_head:`;
-                }else{
-                    message = `The story [${story_name}](${story_url}) is ready for review by ${discord_mentions.join(', ')}`;
+                console.log('comments', story_data.comments)
+                let last_pr = extractGitHubPullRequestUrls(getComments(story_data.comments))
+                
+                if (last_pr.length != 0){
+                    last_pr.slice(-1)[0]
                 }
+                logger.info(`Last PR is "${last_pr}"`);
+                let message = ''
+                let deadline_msg =  ''
+                let pr_msg = ''
+                if(deadline != null){
+                    deadline_msg= ` :bangbang:**Story Due Date** is ${deadline} :bangbang: so the review should be in sooner than that! :exploding_head:`;
+                }
+                if(last_pr != ''){
+                    pr_msg = ` Link to [PR](<${last_pr}>)`;
+                }
+                message = `[${story_name}](${story_url}) is ready for review by ${discord_mentions.join(', ')}`+pr_msg+deadline_msg;
+                
                 const channel = await client.channels.fetch(DISCORD_CHANNEL_ID);
                 channel.send(message);
 
