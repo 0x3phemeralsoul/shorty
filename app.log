@@ -265,3 +265,243 @@
 2024-08-30T07:46:14.903Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
 2024-08-30T07:46:14.907Z [info]: Last PR is "https://github.com/makerdao/dss-cron/pull/33"
 2024-08-30T07:46:14.908Z [info]: Sent message to Discord channel 1277602082630795335: [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064> Link to [PR](<https://github.com/makerdao/dss-cron/pull/33>)
+2024-08-30T08:57:08.552Z [info]: Server is listening on port 3000
+2024-08-30T08:57:09.937Z [info]: Logged in to Discord successfully
+2024-08-30T08:59:56.529Z [info]: Server is listening on port 3000
+2024-08-30T08:59:57.787Z [info]: Logged in to Discord successfully
+2024-08-30T09:00:56.123Z [info]: Server is listening on port 3000
+2024-08-30T09:00:57.261Z [info]: Logged in to Discord successfully
+2024-08-30T09:01:16.024Z [info]: Server is listening on port 3000
+2024-08-30T09:01:17.787Z [info]: Logged in to Discord successfully
+2024-08-30T09:01:43.240Z [info]: Server is listening on port 3000
+2024-08-30T09:01:44.423Z [info]: Logged in to Discord successfully
+2024-08-30T09:02:33.844Z [info]: Server is listening on port 3000
+2024-08-30T09:02:34.670Z [info]: Logged in to Discord successfully
+2024-08-30T09:03:36.942Z [info]: Server is listening on port 3000
+2024-08-30T09:03:38.290Z [info]: Logged in to Discord successfully
+2024-08-30T09:36:21.038Z [info]: Server is listening on port 3000
+2024-08-30T09:37:31.168Z [info]: Server is listening on port 3000
+2024-08-30T09:38:35.184Z [info]: Server is listening on port 3000
+2024-08-30T09:38:45.247Z [warn]: Login attempt 1 failed. Retrying in 1 seconds...
+2024-08-30T09:38:56.261Z [warn]: Login attempt 2 failed. Retrying in 1 seconds...
+2024-08-30T09:39:07.268Z [warn]: Login attempt 3 failed. Retrying in 1 seconds...
+2024-08-30T09:39:18.280Z [warn]: Login attempt 4 failed. Retrying in 1 seconds...
+2024-08-30T09:39:29.296Z [warn]: Login attempt 5 failed. Retrying in 1 seconds...
+2024-08-30T09:39:31.214Z [info]: Logged in to Discord successfully
+2024-08-31T14:28:46.797Z [info]: Server is listening on port 3000
+2024-08-31T14:28:48.111Z [info]: Logged in to Discord successfully
+2024-08-31T14:31:30.764Z [info]: Received webhook event for story ID: 2251
+2024-08-31T14:34:18.076Z [info]: Server is listening on port 3000
+2024-08-31T14:34:19.734Z [info]: Logged in to Discord successfully
+2024-08-31T14:36:10.167Z [info]: Server is listening on port 3000
+2024-08-31T14:36:11.505Z [info]: Logged in to Discord successfully
+2024-08-31T14:36:18.731Z [info]: Received webhook event for story ID: undefined
+2024-08-31T14:36:19.436Z [error]: Error processing event: story_data is not defined
+2024-08-31T14:37:08.273Z [info]: Server is listening on port 3000
+2024-08-31T14:37:09.240Z [info]: Logged in to Discord successfully
+2024-08-31T14:37:23.092Z [info]: Received webhook event for story ID: 2022
+2024-08-31T14:37:23.659Z [error]: Error processing event: story_data is not defined
+2024-08-31T14:39:03.589Z [info]: Server is listening on port 3000
+2024-08-31T14:39:04.605Z [info]: Logged in to Discord successfully
+2024-08-31T14:39:15.892Z [info]: Received webhook event for story ID: 2022
+2024-08-31T14:39:16.454Z [error]: Error processing event: story_data is not defined
+2024-08-31T14:41:21.161Z [info]: Server is listening on port 3000
+2024-08-31T14:41:22.497Z [info]: Logged in to Discord successfully
+2024-08-31T14:41:34.524Z [info]: Received webhook event for story ID: 2022
+2024-08-31T14:41:35.086Z [error]: Error processing event: story_data is not defined
+2024-08-31T14:48:43.596Z [info]: Server is listening on port 3000
+2024-08-31T14:48:44.502Z [info]: Logged in to Discord successfully
+2024-08-31T14:48:53.945Z [info]: Received webhook event for story ID: 2022
+2024-08-31T14:48:54.553Z [error]: Error processing event: mentioned_users is not defined
+2024-08-31T15:08:21.568Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:08:22.171Z [error]: Error processing event: mentioned_users is not defined
+2024-08-31T15:08:26.573Z [info]: Server is listening on port 3000
+2024-08-31T15:08:27.971Z [info]: Logged in to Discord successfully
+2024-08-31T15:08:29.072Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:09:07.686Z [info]: Server is listening on port 3000
+2024-08-31T15:09:08.929Z [info]: Logged in to Discord successfully
+2024-08-31T15:09:11.504Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:09:11.516Z [error]: Error processing event: mentioned_users is not defined
+2024-08-31T15:12:06.881Z [info]: Server is listening on port 3000
+2024-08-31T15:12:07.789Z [info]: Logged in to Discord successfully
+2024-08-31T15:12:10.727Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:12:10.738Z [error]: Error processing event: mentioned_users is not defined
+2024-08-31T15:13:20.532Z [info]: Server is listening on port 3000
+2024-08-31T15:13:21.899Z [info]: Logged in to Discord successfully
+2024-08-31T15:13:22.686Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:16:37.392Z [info]: Server is listening on port 3000
+2024-08-31T15:16:38.430Z [info]: Logged in to Discord successfully
+2024-08-31T15:16:40.173Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:17:05.921Z [info]: Server is listening on port 3000
+2024-08-31T15:17:07.179Z [info]: Logged in to Discord successfully
+2024-08-31T15:17:33.889Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:17:33.901Z [error]: Error processing event: mentioned_users is not defined
+2024-08-31T15:18:45.485Z [info]: Server is listening on port 3000
+2024-08-31T15:18:46.701Z [info]: Logged in to Discord successfully
+2024-08-31T15:18:49.714Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:18:49.724Z [error]: Error processing event: mentioned_users is not defined
+2024-08-31T15:21:02.841Z [info]: Server is listening on port 3000
+2024-08-31T15:21:04.137Z [info]: Logged in to Discord successfully
+2024-08-31T15:21:11.581Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:21:11.596Z [error]: Error processing event: mentioned_users is not defined
+2024-08-31T15:21:32.767Z [info]: Server is listening on port 3000
+2024-08-31T15:21:33.781Z [info]: Logged in to Discord successfully
+2024-08-31T15:21:40.397Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:21:40.406Z [error]: Error processing event: mentioned_users is not defined
+2024-08-31T15:21:59.472Z [info]: Server is listening on port 3000
+2024-08-31T15:22:00.833Z [info]: Logged in to Discord successfully
+2024-08-31T15:22:01.767Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:30:31.379Z [info]: Server is listening on port 3000
+2024-08-31T15:30:32.640Z [info]: Logged in to Discord successfully
+2024-08-31T15:30:48.379Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:30:48.382Z [error]: Error processing event: mentions.push is not a function
+2024-08-31T15:32:17.794Z [info]: Server is listening on port 3000
+2024-08-31T15:32:19.123Z [info]: Logged in to Discord successfully
+2024-08-31T15:32:20.172Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:32:20.173Z [error]: Error processing event: story_name is not defined
+2024-08-31T15:33:16.895Z [info]: Server is listening on port 3000
+2024-08-31T15:33:17.868Z [info]: Logged in to Discord successfully
+2024-08-31T15:33:19.962Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:34:01.381Z [info]: Server is listening on port 3000
+2024-08-31T15:34:02.665Z [info]: Logged in to Discord successfully
+2024-08-31T15:34:04.544Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:34:04.546Z [error]: Error processing event: comment_text is not defined
+2024-08-31T15:34:46.592Z [info]: Server is listening on port 3000
+2024-08-31T15:34:47.899Z [info]: Logged in to Discord successfully
+2024-08-31T15:34:49.139Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:34:49.141Z [error]: Error processing event: channel is not defined
+2024-08-31T15:35:35.769Z [info]: Server is listening on port 3000
+2024-08-31T15:35:37.101Z [info]: Logged in to Discord successfully
+2024-08-31T15:35:38.244Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:35:38.247Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022): [@0x3phemeralsoul](shortcutapp...
+2024-08-31T15:39:09.693Z [info]: Server is listening on port 3000
+2024-08-31T15:39:11.143Z [info]: Logged in to Discord successfully
+2024-08-31T15:39:15.113Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:39:15.115Z [error]: Error processing event: Cannot read properties of undefined (reading 'map')
+2024-08-31T15:39:33.724Z [info]: Server is listening on port 3000
+2024-08-31T15:39:34.645Z [info]: Logged in to Discord successfully
+2024-08-31T15:39:36.046Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:39:36.050Z [error]: Error processing event: Cannot read properties of undefined (reading 'map')
+2024-08-31T15:44:08.007Z [info]: Server is listening on port 3000
+2024-08-31T15:44:09.310Z [info]: Logged in to Discord successfully
+2024-08-31T15:44:10.782Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:44:10.784Z [error]: Error processing event: Cannot read properties of undefined (reading 'map')
+2024-08-31T15:44:26.643Z [info]: Server is listening on port 3000
+2024-08-31T15:44:28.339Z [info]: Logged in to Discord successfully
+2024-08-31T15:44:29.943Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:45:30.033Z [info]: Server is listening on port 3000
+2024-08-31T15:45:31.331Z [info]: Logged in to Discord successfully
+2024-08-31T15:45:33.558Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:46:17.813Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:46:43.643Z [info]: Server is listening on port 3000
+2024-08-31T15:46:44.748Z [info]: Logged in to Discord successfully
+2024-08-31T15:46:46.142Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:48:11.532Z [info]: Server is listening on port 3000
+2024-08-31T15:48:12.816Z [info]: Logged in to Discord successfully
+2024-08-31T15:48:14.294Z [info]: Received webhook event for story ID: 2022
+2024-08-31T15:48:14.299Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022): [@0x3phemeralsoul](shortcutapp...
+2024-08-31T16:04:44.908Z [info]: Server is listening on port 3000
+2024-08-31T16:04:46.100Z [info]: Logged in to Discord successfully
+2024-08-31T16:05:07.274Z [info]: Received webhook event for story ID: 2022
+2024-08-31T16:05:07.275Z [error]: Error processing event: Cannot read properties of undefined (reading 'map')
+2024-09-01T07:01:18.494Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:01:18.498Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:01:55.977Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:01:55.977Z [error]: Error processing event: Cannot read properties of undefined (reading 'map')
+2024-09-01T07:03:20.915Z [info]: Server is listening on port 3000
+2024-09-01T07:03:22.326Z [info]: Logged in to Discord successfully
+2024-09-01T07:03:26.608Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:03:26.610Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:03:37.738Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:03:37.739Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:04:25.057Z [info]: Server is listening on port 3000
+2024-09-01T07:04:26.055Z [info]: Logged in to Discord successfully
+2024-09-01T07:04:30.740Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:04:30.742Z [info]: Sent message with mentions to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:04:54.450Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:08:26.802Z [info]: Server is listening on port 3000
+2024-09-01T07:08:27.666Z [info]: Logged in to Discord successfully
+2024-09-01T07:08:32.183Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:08:32.931Z [info]: Sent message to Discord channel 1277602082630795335: <@674714406218891327>, <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:13:37.964Z [info]: Server is listening on port 3000
+2024-09-01T07:13:39.100Z [info]: Logged in to Discord successfully
+2024-09-01T07:13:43.213Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:13:43.861Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:14:00.809Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:14:01.199Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:16:45.691Z [info]: Server is listening on port 3000
+2024-09-01T07:16:46.613Z [info]: Logged in to Discord successfully
+2024-09-01T07:16:51.462Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:16:52.395Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:16:59.144Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:16:59.599Z [error]: Error processing event: X is not defined
+2024-09-01T07:17:10.390Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:17:10.891Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:18:04.735Z [info]: Server is listening on port 3000
+2024-09-01T07:18:05.573Z [info]: Logged in to Discord successfully
+2024-09-01T07:18:10.132Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:18:10.698Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:18:16.735Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:18:17.181Z [error]: Error processing event: X is not defined
+2024-09-01T07:18:19.887Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:18:20.509Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:20:11.571Z [info]: Server is listening on port 3000
+2024-09-01T07:20:12.753Z [info]: Logged in to Discord successfully
+2024-09-01T07:20:17.208Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:20:38.017Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:20:38.563Z [error]: Error processing event: X is not defined
+2024-09-01T07:20:41.108Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:20:55.157Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:22:41.162Z [info]: Server is listening on port 3000
+2024-09-01T07:22:42.468Z [info]: Logged in to Discord successfully
+2024-09-01T07:22:49.455Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:24:12.452Z [info]: Server is listening on port 3000
+2024-09-01T07:24:13.586Z [info]: Logged in to Discord successfully
+2024-09-01T07:24:17.451Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:24:43.708Z [info]: Server is listening on port 3000
+2024-09-01T07:24:44.992Z [info]: Logged in to Discord successfully
+2024-09-01T07:24:52.084Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:25:23.805Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:26:21.134Z [info]: Server is listening on port 3000
+2024-09-01T07:26:22.228Z [info]: Logged in to Discord successfully
+2024-09-01T07:26:26.222Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:26:26.224Z [error]: Error processing event: Cannot read properties of undefined (reading 'length')
+2024-09-01T07:26:52.909Z [info]: Server is listening on port 3000
+2024-09-01T07:26:53.897Z [info]: Logged in to Discord successfully
+2024-09-01T07:27:00.060Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:27:00.955Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:27:21.678Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:27:22.078Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:28:15.100Z [info]: Server is listening on port 3000
+2024-09-01T07:28:16.103Z [info]: Logged in to Discord successfully
+2024-09-01T07:28:20.066Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:28:20.629Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:28:41.133Z [info]: Server is listening on port 3000
+2024-09-01T07:28:42.174Z [info]: Logged in to Discord successfully
+2024-09-01T07:28:46.677Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:28:46.680Z [info]: Sent message with mentions to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:28:57.600Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:28:58.175Z [error]: Error processing event: X is not defined
+2024-09-01T07:29:00.727Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:29:01.385Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:29:03.859Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:29:04.378Z [error]: Error processing event: X is not defined
+2024-09-01T07:29:09.687Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:29:10.073Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:29:12.673Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:29:13.067Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:30:36.577Z [info]: Server is listening on port 3000
+2024-09-01T07:30:37.501Z [info]: Logged in to Discord successfully
+2024-09-01T07:30:48.420Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:30:51.936Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:30:53.190Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:30:58.578Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:30:59.133Z [error]: Error processing event: X is not defined
+2024-09-01T07:40:00.351Z [info]: Server is listening on port 3000
+2024-09-01T07:40:10.387Z [warn]: Login attempt 1 failed. Retrying in 5 seconds...
+2024-09-01T07:40:16.302Z [info]: Logged in to Discord successfully
+2024-09-01T07:41:47.076Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:41:50.141Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:41:50.699Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
+2024-09-01T07:41:50.700Z [info]: Last PR is "https://github.com/makerdao/dss-cron/pull/33"
+2024-09-01T07:41:50.701Z [info]: Sent message to Discord channel 1277602082630795335: [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064> Link to [PR](<https://github.com/makerdao/dss-cron/pull/33>)
