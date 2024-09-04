@@ -505,3 +505,54 @@
 2024-09-01T07:41:50.699Z [info]: Story "Claim VAT Q1 at least" is ready for review. Workflow state ID: 500000189
 2024-09-01T07:41:50.700Z [info]: Last PR is "https://github.com/makerdao/dss-cron/pull/33"
 2024-09-01T07:41:50.701Z [info]: Sent message to Discord channel 1277602082630795335: [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022) is ready for review by <@674714406218891327>, <@1041280647655850064> Link to [PR](<https://github.com/makerdao/dss-cron/pull/33>)
+2024-09-01T07:47:02.133Z [info]: Server is listening on port 3000
+2024-09-01T07:47:03.093Z [info]: Logged in to Discord successfully
+2024-09-01T07:47:22.398Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:47:22.400Z [error]: Error processing event: text is not defined
+2024-09-01T07:48:01.077Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:48:01.078Z [error]: Error processing event: text is not defined
+2024-09-01T07:48:09.335Z [info]: Server is listening on port 3000
+2024-09-01T07:48:10.332Z [info]: Logged in to Discord successfully
+2024-09-01T07:48:18.244Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:48:31.893Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:48:32.461Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:48:41.984Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:48:41.985Z [info]: Sent message with mentions to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-01T07:49:13.324Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:49:20.464Z [info]: Received webhook event for story ID: 2022
+2024-09-01T07:49:20.465Z [error]: Error processing event: Cannot read properties of undefined (reading 'match')
+2024-09-02T13:30:25.331Z [info]: Received webhook event for story ID: 2232
+2024-09-02T13:30:25.338Z [error]: Error processing event: Cannot read properties of undefined (reading 'match')
+2024-09-02T13:33:05.184Z [info]: Received webhook event for story ID: 2221
+2024-09-02T13:33:05.198Z [error]: Error processing event: Cannot read properties of undefined (reading 'match')
+2024-09-02T13:36:18.926Z [info]: Received webhook event for story ID: 0
+2024-09-02T13:36:18.933Z [error]: Error processing event: Cannot read properties of undefined (reading 'match')
+2024-09-02T13:36:19.896Z [info]: Received webhook event for story ID: 0
+2024-09-02T13:36:19.896Z [error]: Error processing event: Cannot read properties of undefined (reading 'match')
+2024-09-02T13:39:07.099Z [info]: Received webhook event for story ID: 2037
+2024-09-02T13:39:07.100Z [error]: Error processing event: Cannot read properties of undefined (reading 'match')
+2024-09-02T13:41:17.026Z [info]: Received webhook event for story ID: 2133
+2024-09-02T13:41:17.027Z [error]: Error processing event: Cannot read properties of undefined (reading 'match')
+2024-09-02T13:42:59.226Z [info]: Received webhook event for story ID: 2192
+2024-09-02T13:43:00.056Z [info]: Sent message to Discord channel 1277602082630795335: <@1157492699415457892> New comment on [As Dewiz, we want to make a Technical Forum posts about our contributions to end game Phase 1B](https://app.shortcut.com/dewiz/story/2192)
+2024-09-02T13:43:05.766Z [info]: Received webhook event for story ID: 2216
+2024-09-02T13:43:05.767Z [error]: Error processing event: Cannot read properties of undefined (reading 'match')
+2024-09-04T17:36:19.735Z [info]: Server is listening on port 3000
+2024-09-04T17:36:20.539Z [info]: Logged in to Discord successfully
+2024-09-04T17:36:27.435Z [info]: Received webhook event for story ID: 2022
+2024-09-04T17:36:28.065Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-04T17:41:46.878Z [info]: Received webhook event for story ID: 2022
+2024-09-04T17:41:47.308Z [info]: Sent message to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-04T17:41:52.095Z [info]: Server is listening on port 3000
+2024-09-04T17:41:54.436Z [info]: Logged in to Discord successfully
+2024-09-04T17:41:57.100Z [info]: Received webhook event for story ID: 2022
+2024-09-04T17:42:20.369Z [info]: Received webhook event for story ID: 2022
+2024-09-04T17:42:20.371Z [error]: Error processing event: Cannot read properties of undefined (reading 'match')
+2024-09-04T17:42:22.572Z [info]: Received webhook event for story ID: 2022
+2024-09-04T17:42:22.573Z [error]: Error processing event: Cannot read properties of undefined (reading 'match')
+2024-09-04T17:42:31.266Z [info]: Received webhook event for story ID: 2022
+2024-09-04T17:42:31.690Z [info]: Sent message to Discord channel 1277602082630795335: <@674714406218891327> New comment on [Claim VAT Q1 at least](https://app.shortcut.com/dewiz/story/2022)
+2024-09-04T17:42:41.135Z [info]: Received webhook event for story ID: 2022
+2024-09-04T17:42:41.136Z [error]: Error processing event: Cannot read properties of undefined (reading 'match')
+2024-09-04T17:42:42.225Z [info]: Received webhook event for story ID: 2022
+2024-09-04T17:42:42.226Z [error]: Error processing event: Cannot read properties of undefined (reading 'match')

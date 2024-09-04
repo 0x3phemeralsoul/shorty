@@ -21,6 +21,16 @@ function extractGitHubPullRequestUrls(texts) {
     return results;
 }
 
+
+function isGitHubPullRequestUrls(texts) {
+    // Define the regex pattern
+    const githubPullRequestRegex = /https?:\/\/github\.com\/[^\/]+\/[^\/]+\/pull\/\d+/g;
+
+
+        return texts.match(githubPullRequestRegex);
+
+}
+
 /* // Example usage:
 const texts = [
     "[https://github.com/makerdao/dss-cron/pull/33](https://github.com/makerdao/dss-cron/pull/33)",
@@ -96,5 +106,5 @@ const textComments = getComments(comments);
 console.log(textComments); */
 
 
-module.exports = {extractGitHubPullRequestUrls, getComments};
+module.exports = {extractGitHubPullRequestUrls, getComments, isGitHubPullRequestUrls};
 

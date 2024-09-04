@@ -1,5 +1,5 @@
 require('dotenv').config(); // Load environment variables from .env
-const {extractGitHubPullRequestUrls, getComments} = require('./pr');
+const {extractGitHubPullRequestUrls, getComments, isGitHubPullRequestUrls} = require('./pr');
 
 const { Client, GatewayIntentBits } = require('discord.js');
 const express = require('express');
@@ -153,14 +153,14 @@ app.post('/', async (req, res) => {
         let story_id;
         let comment_text;
         let mention_ids;
-        let task_owners;
         let discord_mentions = []
         let is_comment_created = false;
         event.actions.forEach(action => {
+            //Detecting a comment has been created and fetching the story the comment belongs to
             if (action.action == 'create' && action.entity_type == 'story-comment') {
                 is_comment_created = true;
                 comment_text = action.text;
-                console.log(action.hasOwnProperty('mention_ids'))
+                author_id = action.author_id;
                 if(action.hasOwnProperty('mention_ids')){
                 mention_ids = action.mention_ids;
                 discord_mentions = mention_ids.map(owner => `<${users.get(owner)}>`);
@@ -177,38 +177,40 @@ app.post('/', async (req, res) => {
             });
             try {
                 
-                
-                //if the webhook event is due to a new comment AND there are users mentioned in the comment I mention the users mentioned in the comment.
+                if (!isGitHubPullRequestUrls(comment_text)){
+                    //if the webhook event is due to a new comment AND there are users mentioned in the comment, I mention the users mentioned in the comment.
 
-                if (comment_text != '' && discord_mentions.length > 0) {
-                    const comment_message = `${discord_mentions.join(', ')} New comment on [${story_name}](${story_url})`;
-                    const channel = await client.channels.fetch(DISCORD_CHANNEL_ID);
-                    channel.send(comment_message);
-    
-                    logger.info(`Sent message with mentions to Discord channel ${DISCORD_CHANNEL_ID}: ${comment_message}`);
-                    res.status(200).send('Event processed');
-                // if there is a new comment, but not users mentioned in the comment I mention the "owner" of the ticket
-                }else if (comment_text != '' && is_comment_created){
-                    // Fetch the story details using Shortcut API
-                    const story = await axios.get(`https://api.app.shortcut.com/api/v3/stories/${story_id}`, {
-                    headers: {
-                      "Shortcut-Token": SHORTCUT_API_TOKEN,
-                      "Content-Type": "application/json"
+                    if (comment_text != '' && discord_mentions.length > 0) {
+                        const comment_message = `${discord_mentions.join(', ')} New comment on [${story_name}](${story_url})`;
+                        const channel = await client.channels.fetch(DISCORD_CHANNEL_ID);
+                        channel.send(comment_message);
+        
+                        logger.info(`Sent message with mentions to Discord channel ${DISCORD_CHANNEL_ID}: ${comment_message}`);
+                        res.status(200).send('Event processed');
+                    // if there is a new comment, but not users mentioned in the comment I mention the "owner" of the ticket
+                    }else if (comment_text != '' && is_comment_created){
+                        // Fetch the story details using Shortcut API
+                        const story = await axios.get(`https://api.app.shortcut.com/api/v3/stories/${story_id}`, {
+                        headers: {
+                        "Shortcut-Token": SHORTCUT_API_TOKEN,
+                        "Content-Type": "application/json"
+                        
+                        }
                     
+                        });
+                        
+                        story_owners = story.data.owner_ids
+                        discord_mentions = story_owners.map(owner => `<${users.get(owner)}>`);
+                        if (story_owners.indexOf(author_id) == -1){
+                            const comment_message = `${discord_mentions.join(', ')} New comment on [${story_name}](${story_url})`;
+                            const channel = await client.channels.fetch(DISCORD_CHANNEL_ID);
+                            channel.send(comment_message);
+            
+                            logger.info(`Sent message to Discord channel ${DISCORD_CHANNEL_ID}: ${comment_message}`);
+                            res.status(200).send('Event processed');
+                        }
+
                     }
-                   
-                    });
-                    
-                    story_owners = story.data.owner_ids
-                    discord_mentions = story_owners.map(owner => `<${users.get(owner)}>`);
-
-                    const comment_message = `${discord_mentions.join(', ')} New comment on [${story_name}](${story_url})`;
-                    const channel = await client.channels.fetch(DISCORD_CHANNEL_ID);
-                    channel.send(comment_message);
-    
-                    logger.info(`Sent message to Discord channel ${DISCORD_CHANNEL_ID}: ${comment_message}`);
-                    res.status(200).send('Event processed');
-
                 }
             } catch (error) {
                 logger.error('Error processing event:', error);
