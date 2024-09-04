@@ -11,7 +11,8 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBit
 
 // Load secrets from environment variables
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
-const DISCORD_CHANNEL_ID = process.env.DISCORD_CHANNEL_ID;
+const DEV_DISCORD_CHANNEL_ID = process.env.DEV_DISCORD_CHANNEL_ID;
+const CORE_DISCORD_CHANNEL_ID = process.env.CORE_DISCORD_CHANNEL_ID;
 const SHORTCUT_API_TOKEN = process.env.SHORTCUT_API_TOKEN;
 const LOGGER_LEVEL = process.env.LOGGER_LEVEL;
 const MAX_RETRIES = process.env.MAX_RETRIES;
