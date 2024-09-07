@@ -11,12 +11,16 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBit
 
 // Load secrets from environment variables
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
-const DEV_DISCORD_CHANNEL_ID = process.env.DEV_DISCORD_CHANNEL_ID;
-const CORE_DISCORD_CHANNEL_ID = process.env.CORE_DISCORD_CHANNEL_ID;
+const DEV_discord_channel = process.env.DEV_discord_channel;
+const CORE_discord_channel = process.env.CORE_discord_channel;
 const SHORTCUT_API_TOKEN = process.env.SHORTCUT_API_TOKEN;
 const LOGGER_LEVEL = process.env.LOGGER_LEVEL;
 const MAX_RETRIES = process.env.MAX_RETRIES;
 const RETRY_DELAY = process.env.RETRY_DELAY;
+const PRODUCT_DEVELOPMENT_WORKFLOW_ID = process.env.PRODUCT_DEVELOPMENT_WORKFLOW_ID;
+const OPERATIONAL_TASKS_WORKFLOW_ID = process.env.OPERATIONAL_TASKS_WORKFLOW_ID;
+const PRODUCT_DEVELOPEMENT_READY_FOR_REVIEW_STATE_ID = process.env.PRODUCT_DEVELOPEMENT_READY_FOR_REVIEW_STATE_ID;
+const OPERATIONAL_TASKS_READY_FOR_REVIEW_STATE_ID = process.env.OPERATIONAL_TASKS_READY_FOR_REVIEW_STATE_ID;
 
 // Configure winston for logging
 const logger = winston.createLogger({
@@ -86,7 +90,7 @@ app.post('/', async (req, res) => {
         in_review_workflow_state_id = event.actions[0].changes.workflow_state_id.new;
     }
     // state change to in review
-    if (in_review_workflow_state_id == 500000189) {
+    if (in_review_workflow_state_id == OPERATIONAL_TASKS_READY_FOR_REVIEW_STATE_ID) {
         
 
         try {
@@ -107,7 +111,7 @@ app.post('/', async (req, res) => {
                 deadline = story_data.deadline.split("T", 1)[0];
             }
 
-            if (workflow_id == 500000183 && workflow_state_id == 500000189) {
+            if (workflow_id == OPERATIONAL_TASKS_WORKFLOW_ID && workflow_state_id == OPERATIONAL_TASKS_READY_FOR_REVIEW_STATE_ID) {
                 logger.info(`Story "${story_name}" is ready for review. Workflow state ID: ${workflow_state_id}`);
 
                 let task_owners = story_data.tasks.map(task => task.owner_ids[0]);
@@ -129,10 +133,10 @@ app.post('/', async (req, res) => {
                 }
                 message = `[${story_name}](${story_url}) is ready for review by ${discord_mentions.join(', ')}` + pr_msg + deadline_msg;
 
-                const channel = await client.channels.fetch(DISCORD_CHANNEL_ID);
+                const channel = await client.channels.fetch(discord_channel);
                 channel.send(message);
 
-                logger.info(`Sent message to Discord channel ${DISCORD_CHANNEL_ID}: ${message}`);
+                logger.info(`Sent message to Discord channel ${discord_channel}: ${message}`);
 
                 res.status(200).send('Event processed');
             } else {
@@ -183,10 +187,10 @@ app.post('/', async (req, res) => {
 
                     if (comment_text != '' && discord_mentions.length > 0) {
                         const comment_message = `${discord_mentions.join(', ')} New comment on [${story_name}](${story_url})`;
-                        const channel = await client.channels.fetch(DISCORD_CHANNEL_ID);
+                        const channel = await client.channels.fetch(discord_channel);
                         channel.send(comment_message);
         
-                        logger.info(`Sent message with mentions to Discord channel ${DISCORD_CHANNEL_ID}: ${comment_message}`);
+                        logger.info(`Sent message with mentions to Discord channel ${discord_channel}: ${comment_message}`);
                         res.status(200).send('Event processed');
                     // if there is a new comment, but not users mentioned in the comment I mention the "owner" of the ticket
                     }else if (comment_text != '' && is_comment_created){
@@ -204,10 +208,10 @@ app.post('/', async (req, res) => {
                         discord_mentions = story_owners.map(owner => `<${users.get(owner)}>`);
                         if (story_owners.indexOf(author_id) == -1){
                             const comment_message = `${discord_mentions.join(', ')} New comment on [${story_name}](${story_url})`;
-                            const channel = await client.channels.fetch(DISCORD_CHANNEL_ID);
+                            const channel = await client.channels.fetch(discord_channel);
                             channel.send(comment_message);
             
-                            logger.info(`Sent message to Discord channel ${DISCORD_CHANNEL_ID}: ${comment_message}`);
+                            logger.info(`Sent message to Discord channel ${discord_channel}: ${comment_message}`);
                             res.status(200).send('Event processed');
                         }
 
