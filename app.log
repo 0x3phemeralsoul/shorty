@@ -556,3 +556,311 @@
 2024-09-04T17:42:41.136Z [error]: Error processing event: Cannot read properties of undefined (reading 'match')
 2024-09-04T17:42:42.225Z [info]: Received webhook event for story ID: 2022
 2024-09-04T17:42:42.226Z [error]: Error processing event: Cannot read properties of undefined (reading 'match')
+2024-09-07T12:41:58.985Z [info]: Server is listening on port 3000
+2024-09-07T12:41:59.995Z [info]: Logged in to Discord successfully
+2024-09-07T12:42:45.951Z [info]: Received webhook event for story ID: 0
+2024-09-07T12:42:45.952Z [error]: Error processing event: Cannot read properties of undefined (reading 'match')
+2024-09-07T12:43:03.107Z [info]: Received webhook event for story ID: 2292
+2024-09-07T12:43:03.945Z [info]: Story "test for CORE" is ready for review. Workflow state ID: 500000185
+2024-09-07T12:43:03.946Z [info]: Last PR is ""
+2024-09-07T12:43:04.237Z [error]: Error processing event: Invalid Form Body
+channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+2024-09-07T12:43:06.082Z [info]: Received webhook event for story ID: 2292
+2024-09-07T12:43:06.082Z [error]: Error processing event: Cannot read properties of undefined (reading 'match')
+2024-09-07T12:43:13.107Z [info]: Received webhook event for story ID: 2292
+2024-09-07T12:43:13.525Z [info]: Story "test for CORE" is ready for review. Workflow state ID: 500000189
+2024-09-07T12:43:13.525Z [info]: Last PR is ""
+2024-09-07T12:43:13.735Z [error]: Error processing event: Unknown Channel
+2024-09-07T12:43:32.292Z [info]: Server is listening on port 3000
+2024-09-07T12:43:33.093Z [info]: Logged in to Discord successfully
+2024-09-07T12:43:36.278Z [info]: Received webhook event for story ID: 2292
+2024-09-07T12:43:36.753Z [info]: Story "test for CORE" is ready for review. Workflow state ID: 500000189
+2024-09-07T12:43:36.754Z [info]: Last PR is ""
+2024-09-07T12:43:36.925Z [error]: Error processing event: Unknown Channel
+2024-09-07T12:45:55.259Z [info]: Server is listening on port 3000
+2024-09-07T12:45:56.156Z [info]: Logged in to Discord successfully
+2024-09-07T12:46:07.438Z [info]: Received webhook event for story ID: 2292
+2024-09-07T12:46:07.987Z [info]: Story "test for CORE" is ready for review. Workflow state ID: 500000189
+2024-09-07T12:46:07.987Z [info]: Last PR is ""
+2024-09-07T12:46:08.309Z [error]: Error processing event: Invalid Form Body
+channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+2024-09-07T12:47:08.033Z [info]: Server is listening on port 3000
+2024-09-07T12:47:08.741Z [info]: Logged in to Discord successfully
+2024-09-07T12:47:11.202Z [info]: Received webhook event for story ID: 2292
+2024-09-07T12:47:11.739Z [info]: Story "test for CORE" is ready for review. Workflow state ID: 500000189
+2024-09-07T12:47:11.739Z [info]: Last PR is ""
+2024-09-07T12:47:11.740Z [info]: Sent message to Discord channel 1277602082630795335: [test for CORE](https://app.shortcut.com/dewiz/story/2292) is ready for review by <@1041280647655850064>
+2024-09-07T12:48:27.771Z [info]: Received webhook event for story ID: 2292
+2024-09-07T12:48:28.345Z [error]: Error processing event: Invalid Form Body
+channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+2024-09-07T12:51:24.001Z [info]: Server is listening on port 3000
+2024-09-07T12:51:24.930Z [info]: Logged in to Discord successfully
+2024-09-07T12:51:33.101Z [info]: Received webhook event for story ID: 2292
+2024-09-07T12:51:33.946Z [error]: Error processing event: Invalid Form Body
+channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+2024-09-07T12:54:13.286Z [info]: Server is listening on port 3000
+2024-09-07T12:54:14.206Z [info]: Logged in to Discord successfully
+2024-09-07T12:54:17.786Z [info]: Received webhook event for story ID: 2292
+2024-09-07T12:54:18.546Z [error]: Error processing event: Invalid Form Body
+channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+2024-09-07T13:03:26.354Z [info]: Server is listening on port 3000
+2024-09-07T13:03:27.477Z [info]: Logged in to Discord successfully
+2024-09-07T13:03:34.230Z [info]: Received webhook event for story ID: 2292
+2024-09-07T13:03:34.854Z [info]: Sent message to Discord channel 1277602082630795335: <@674714406218891327> New comment on [test for CORE](https://app.shortcut.com/dewiz/story/2292)
+2024-09-07T13:11:25.950Z [info]: Received webhook event for story ID: 2292
+2024-09-07T13:11:26.425Z [info]: Sent message with mentions to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [test for CORE](https://app.shortcut.com/dewiz/story/2292)
+2024-09-07T13:11:36.007Z [info]: Received webhook event for story ID: 2292
+2024-09-07T13:11:36.416Z [info]: Story "test for CORE" is ready for review. Workflow state ID: 500000185
+2024-09-07T13:11:36.417Z [info]: Last PR is ""
+2024-09-07T13:11:36.698Z [error]: Error processing event: Invalid Form Body
+channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+2024-09-07T13:11:38.029Z [info]: Received webhook event for story ID: 2292
+2024-09-07T13:11:38.460Z [info]: Story "test for CORE" is ready for review. Workflow state ID: 500000184
+2024-09-07T13:11:38.460Z [info]: Last PR is ""
+2024-09-07T13:11:38.665Z [error]: Error processing event: Invalid Form Body
+channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+2024-09-07T13:11:40.051Z [info]: Received webhook event for story ID: 2292
+2024-09-07T13:11:40.493Z [info]: Story "test for CORE" is ready for review. Workflow state ID: 500000189
+2024-09-07T13:11:40.494Z [info]: Last PR is ""
+2024-09-07T13:11:40.495Z [info]: Sent message to Discord channel 1277602082630795335: [test for CORE](https://app.shortcut.com/dewiz/story/2292) is ready for review by <@1041280647655850064>
+2024-09-07T13:12:22.410Z [info]: Received webhook event for story ID: 0
+2024-09-07T13:12:42.053Z [info]: Server is listening on port 3000
+2024-09-07T13:12:43.300Z [info]: Logged in to Discord successfully
+2024-09-07T13:12:54.929Z [info]: Received webhook event for story ID: 2296
+2024-09-07T13:15:18.484Z [info]: Server is listening on port 3000
+2024-09-07T13:15:19.186Z [info]: Logged in to Discord successfully
+2024-09-07T13:15:23.477Z [info]: Received webhook event for story ID: 2296
+2024-09-07T13:15:57.548Z [info]: Server is listening on port 3000
+2024-09-07T13:15:58.306Z [info]: Logged in to Discord successfully
+2024-09-07T13:16:02.456Z [info]: Received webhook event for story ID: 2296
+2024-09-07T13:16:03.135Z [info]: Sent message to Discord channel 1280947308208590930: <@674714406218891327> New comment on [test for Devs](https://app.shortcut.com/dewiz/story/2296)
+2024-09-07T13:16:19.991Z [info]: Received webhook event for story ID: 2296
+2024-09-07T13:16:20.327Z [info]: Sent message with mentions to Discord channel 1280947308208590930: <@1041280647655850064> New comment on [test for Devs](https://app.shortcut.com/dewiz/story/2296)
+2024-09-07T13:16:27.014Z [info]: Received webhook event for story ID: 2296
+2024-09-07T13:26:45.754Z [info]: Server is listening on port 3000
+2024-09-07T13:26:46.445Z [info]: Logged in to Discord successfully
+2024-09-07T13:26:52.608Z [info]: Received webhook event for story ID: 2296
+2024-09-07T13:26:53.442Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000009
+2024-09-07T13:26:53.443Z [info]: Last PR is ""
+2024-09-07T13:26:53.445Z [info]: Sent message to Discord channel 1280947308208590930: [test for Devs](https://app.shortcut.com/dewiz/story/2296) is ready for review by 
+2024-09-07T13:27:11.017Z [info]: Received webhook event for story ID: 2296
+2024-09-07T13:27:11.358Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000008
+2024-09-07T13:27:11.359Z [info]: Last PR is ""
+2024-09-07T13:27:11.589Z [error]: Error processing event: Invalid Form Body
+channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+2024-09-07T13:27:14.031Z [info]: Received webhook event for story ID: 2296
+2024-09-07T13:27:14.444Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000009
+2024-09-07T13:27:14.445Z [info]: Last PR is ""
+2024-09-07T13:27:14.445Z [info]: Sent message to Discord channel 1280947308208590930: [test for Devs](https://app.shortcut.com/dewiz/story/2296) is ready for review by 
+2024-09-07T13:27:22.088Z [info]: Received webhook event for story ID: 2292
+2024-09-07T13:27:22.433Z [info]: Story "test for CORE" is ready for review. Workflow state ID: 500000185
+2024-09-07T13:27:22.433Z [info]: Last PR is ""
+2024-09-07T13:27:22.721Z [error]: Error processing event: Invalid Form Body
+channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+2024-09-07T13:27:24.107Z [info]: Received webhook event for story ID: 2292
+2024-09-07T13:27:24.502Z [info]: Story "test for CORE" is ready for review. Workflow state ID: 500000189
+2024-09-07T13:27:24.502Z [info]: Last PR is ""
+2024-09-07T13:27:24.502Z [info]: Sent message to Discord channel 1277602082630795335: [test for CORE](https://app.shortcut.com/dewiz/story/2292) is ready for review by <@1041280647655850064>
+2024-09-09T13:51:29.619Z [info]: Received webhook event for story ID: 2192
+2024-10-14T10:51:19.784Z [info]: Server is listening on port 3000
+2024-10-14T10:51:20.722Z [info]: Logged in to Discord successfully
+2024-10-14T13:44:04.545Z [info]: Received webhook event for story ID: 0
+2024-10-14T15:38:01.664Z [info]: Server is listening on port 3000
+2024-10-14T15:38:02.428Z [info]: Logged in to Discord successfully
+2024-10-14T15:38:17.434Z [info]: Received webhook event for story ID: 2296
+2024-10-14T15:38:18.016Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000010
+2024-10-14T15:38:18.017Z [info]: Last PR is ""
+2024-10-14T15:38:18.333Z [error]: Error processing event: Invalid Form Body
+channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+2024-10-14T15:41:08.918Z [info]: Server is listening on port 3000
+2024-10-14T15:41:09.859Z [info]: Logged in to Discord successfully
+2024-10-14T15:41:13.713Z [info]: Received webhook event for story ID: 2296
+2024-10-14T15:41:14.282Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000010
+2024-10-14T15:41:14.283Z [info]: Last PR is "", last PR length "0
+2024-10-14T15:41:14.563Z [error]: Error processing event: Invalid Form Body
+channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+2024-10-14T15:41:51.244Z [info]: Server is listening on port 3000
+2024-10-14T15:41:52.024Z [info]: Logged in to Discord successfully
+2024-10-14T15:41:54.258Z [info]: Received webhook event for story ID: 2296
+2024-10-14T15:41:54.861Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000010
+2024-10-14T15:41:54.861Z [info]: Last PR is "", last PR length "0
+2024-10-14T15:41:55.055Z [error]: Error processing event: Invalid Form Body
+channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+2024-10-14T15:46:35.112Z [info]: Server is listening on port 3000
+2024-10-14T15:46:37.050Z [info]: Logged in to Discord successfully
+2024-10-14T15:46:40.582Z [info]: Received webhook event for story ID: 2296
+2024-10-14T15:46:41.371Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000010
+2024-10-14T15:46:41.372Z [info]: Last PR is "", last PR length "0
+2024-10-14T15:46:41.639Z [error]: Error processing event: Invalid Form Body
+channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+2024-10-14T15:46:58.708Z [info]: Received webhook event for story ID: 2296
+2024-10-14T15:49:02.042Z [info]: Server is listening on port 3000
+2024-10-14T15:49:02.828Z [info]: Logged in to Discord successfully
+2024-10-14T15:49:06.947Z [info]: Received webhook event for story ID: 2296
+2024-10-14T15:49:07.468Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000010
+2024-10-14T15:49:07.468Z [info]: Last PR is "", last PR length "0
+2024-10-14T15:49:07.729Z [error]: Error processing event: Invalid Form Body
+channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+2024-10-14T15:51:05.044Z [info]: Received webhook event for story ID: 2296
+2024-10-14T15:51:05.616Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000008
+2024-10-14T15:51:05.617Z [info]: Last PR is "", last PR length "0
+2024-10-14T15:51:06.139Z [error]: Error processing event: Invalid Form Body
+channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+2024-10-14T15:51:16.225Z [info]: Received webhook event for story ID: 2296
+2024-10-14T15:51:16.639Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000009
+2024-10-14T15:51:16.639Z [info]: Last PR is "", last PR length "0
+2024-10-14T15:51:16.640Z [info]: Sent message to Discord channel 1280947308208590930: [test for Devs](https://app.shortcut.com/dewiz/story/2296) is ready for review by 
+2024-10-14T15:53:13.934Z [info]: Received webhook event for story ID: 2296
+2024-10-14T15:53:34.980Z [info]: Server is listening on port 3000
+2024-10-14T15:53:35.969Z [info]: Logged in to Discord successfully
+2024-10-14T15:53:39.975Z [info]: Received webhook event for story ID: 2296
+2024-10-14T15:53:40.547Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000008
+2024-10-14T15:53:40.548Z [info]: Last PR is "", last PR length "0"
+2024-10-14T15:53:40.798Z [error]: Error processing event: Invalid Form Body
+channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+2024-10-14T15:53:45.374Z [info]: Received webhook event for story ID: 2296
+2024-10-14T15:53:45.753Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000009
+2024-10-14T15:53:45.753Z [info]: Last PR is "", last PR length "0"
+2024-10-14T15:53:45.754Z [info]: Sent message to Discord channel 1280947308208590930: [test for Devs](https://app.shortcut.com/dewiz/story/2296) is ready for review by <@674714406218891327>, <@1157492699415457892>
+2024-10-14T15:54:05.842Z [info]: Received webhook event for story ID: 2296
+2024-10-14T15:54:06.214Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000008
+2024-10-14T15:54:06.215Z [info]: Last PR is "", last PR length "0"
+2024-10-14T15:54:06.726Z [error]: Error processing event: Invalid Form Body
+channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+2024-10-14T15:55:56.019Z [info]: Server is listening on port 3000
+2024-10-14T15:55:56.943Z [info]: Logged in to Discord successfully
+2024-10-14T15:56:02.374Z [info]: Received webhook event for story ID: 2296
+2024-10-14T15:56:03.178Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000009
+2024-10-14T15:56:03.179Z [info]: Last PR is "", last PR length "0"
+2024-10-14T15:56:03.180Z [info]: Sent message to Discord channel 0: [test for Devs](https://app.shortcut.com/dewiz/story/2296) is ready for review by <@674714406218891327>, <@1157492699415457892>
+2024-10-14T15:56:09.837Z [info]: Received webhook event for story ID: 2296
+2024-10-15T15:52:37.623Z [info]: Server is listening on port 3000
+2024-10-15T15:52:38.585Z [info]: Logged in to Discord successfully
+2024-10-15T15:52:43.533Z [info]: Received webhook event for story ID: 2296
+2024-10-15T15:53:49.597Z [info]: Server is listening on port 3000
+2024-10-15T15:53:50.799Z [info]: Logged in to Discord successfully
+2024-10-15T15:53:55.684Z [info]: Received webhook event for story ID: 2296
+2024-10-15T15:54:20.815Z [info]: Received webhook event for story ID: 2296
+2024-10-15T15:54:21.221Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000009
+2024-10-15T15:54:21.222Z [info]: Last PR is "", last PR length "0"
+2024-10-15T15:54:21.225Z [info]: Sent message to Discord channel 0: [test for Devs](https://app.shortcut.com/dewiz/story/2296) is ready for review by <@674714406218891327>, <@1157492699415457892>
+2024-10-15T15:55:42.524Z [info]: Received webhook event for story ID: 2296
+2024-10-15T15:55:47.970Z [info]: Received webhook event for story ID: 2296
+2024-10-15T15:55:48.315Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000009
+2024-10-15T15:55:48.315Z [info]: Last PR is "", last PR length "0"
+2024-10-15T15:55:48.315Z [info]: Sent message to Discord channel 0: [test for Devs](https://app.shortcut.com/dewiz/story/2296) is ready for review by <@674714406218891327>, <@1157492699415457892>
+2024-10-15T15:56:04.195Z [info]: Received webhook event for story ID: 2296
+2024-10-15T15:56:04.682Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000009
+2024-10-15T15:56:04.682Z [info]: Last PR is "", last PR length "0"
+2024-10-15T15:56:04.683Z [info]: Sent message to Discord channel 0: [test for Devs](https://app.shortcut.com/dewiz/story/2296) is ready for review by <@674714406218891327>, <@1157492699415457892>
+2024-10-15T15:56:20.914Z [info]: Server is listening on port 3000
+2024-10-15T15:56:21.831Z [info]: Logged in to Discord successfully
+2024-10-15T15:56:25.114Z [info]: Received webhook event for story ID: 2296
+2024-10-15T15:56:25.697Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000009
+2024-10-15T15:56:25.698Z [info]: Last PR is "", last PR length "0"
+2024-10-15T15:56:25.700Z [info]: Sent message to Discord channel 1280947308208590930: [test for Devs](https://app.shortcut.com/dewiz/story/2296) is ready for review by <@674714406218891327>, <@1157492699415457892>
+2024-10-15T15:56:34.935Z [info]: Received webhook event for story ID: 2296
+2024-10-15T15:56:44.616Z [info]: Received webhook event for story ID: 2296
+2024-10-15T15:56:52.245Z [info]: Received webhook event for story ID: 2296
+2024-10-15T15:56:52.628Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000009
+2024-10-15T15:56:52.628Z [info]: Last PR is "", last PR length "0"
+2024-10-15T15:56:52.629Z [info]: Sent message to Discord channel 1280947308208590930: [test for Devs](https://app.shortcut.com/dewiz/story/2296) is ready for review by <@674714406218891327>, <@1157492699415457892>
+2024-10-15T15:57:06.084Z [info]: Received webhook event for story ID: 2296
+2024-10-15T15:57:06.580Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000009
+2024-10-15T15:57:06.580Z [info]: Last PR is "", last PR length "0"
+2024-10-15T15:57:06.580Z [info]: Sent message to Discord channel 1280947308208590930: [test for Devs](https://app.shortcut.com/dewiz/story/2296) is ready for review by <@674714406218891327>, <@1157492699415457892>
+2024-10-15T15:59:20.016Z [info]: Server is listening on port 3000
+2024-10-15T15:59:20.925Z [info]: Logged in to Discord successfully
+2024-10-15T15:59:24.403Z [info]: Received webhook event for story ID: 2296
+2024-10-15T16:10:07.718Z [info]: Server is listening on port 3000
+2024-10-15T16:10:08.514Z [info]: Logged in to Discord successfully
+2024-10-15T16:10:10.621Z [info]: Received webhook event for story ID: 2296
+2024-10-15T16:11:04.622Z [info]: Server is listening on port 3000
+2024-10-15T16:11:05.556Z [info]: Logged in to Discord successfully
+2024-10-15T16:11:07.317Z [info]: Received webhook event for story ID: 2296
+2024-10-15T16:12:48.308Z [info]: Server is listening on port 3000
+2024-10-15T16:12:49.074Z [info]: Logged in to Discord successfully
+2024-10-15T16:12:50.532Z [info]: Received webhook event for story ID: 2296
+2024-10-15T16:13:20.679Z [info]: Server is listening on port 3000
+2024-10-15T16:13:21.620Z [info]: Logged in to Discord successfully
+2024-10-15T16:13:24.496Z [info]: Received webhook event for story ID: 2296
+2024-10-15T16:13:57.996Z [info]: Server is listening on port 3000
+2024-10-15T16:13:59.479Z [info]: Logged in to Discord successfully
+2024-10-15T16:14:00.436Z [info]: Received webhook event for story ID: 2296
+2024-10-15T16:14:21.255Z [info]: Server is listening on port 3000
+2024-10-15T16:14:22.038Z [info]: Logged in to Discord successfully
+2024-10-15T16:14:23.309Z [info]: Received webhook event for story ID: 2296
+2024-10-15T16:14:55.628Z [info]: Received webhook event for story ID: 2296
+2024-10-15T16:15:11.052Z [info]: Received webhook event for story ID: 2296
+2024-10-15T16:15:11.422Z [info]: Sent message to Discord channel 1280947308208590930: <@674714406218891327> New comment on [test for Devs](https://app.shortcut.com/dewiz/story/2296)
+2024-10-15T16:15:30.628Z [info]: Received webhook event for story ID: 2296
+2024-10-15T16:15:31.172Z [info]: Sent message with mentions to Discord channel 1280947308208590930: <@674714406218891327> New comment on [test for Devs](https://app.shortcut.com/dewiz/story/2296)
+2024-10-15T16:15:55.232Z [info]: Received webhook event for story ID: 2296
+2024-10-15T16:15:55.693Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000008
+2024-10-15T16:15:55.696Z [info]: Last PR is "", last PR length "0"
+2024-10-15T16:15:55.944Z [error]: Error processing event: Unknown Channel
+2024-10-15T16:16:03.860Z [info]: Received webhook event for story ID: 2296
+2024-10-15T16:24:14.317Z [info]: Server is listening on port 3000
+2024-10-15T16:24:15.199Z [info]: Logged in to Discord successfully
+2024-10-15T16:24:18.993Z [info]: Received webhook event for story ID: 2296
+2024-10-15T16:24:19.934Z [error]: Error processing event: Unknown Channel
+2024-10-16T06:12:11.886Z [info]: Server is listening on port 3000
+2024-10-16T06:12:12.748Z [info]: Logged in to Discord successfully
+2024-10-16T06:12:16.733Z [info]: Received webhook event for story ID: 2296
+2024-10-16T06:12:17.672Z [error]: Error processing event: Unknown Channel
+2024-10-16T06:33:55.257Z [info]: Received webhook event for story ID: 2292
+2024-10-16T06:33:55.683Z [info]: Story "test for CORE" is ready for review. Workflow state ID: 500000185
+2024-10-16T06:33:55.683Z [info]: Last PR is "", last PR length "0"
+2024-10-16T06:33:55.905Z [error]: Error processing event: Unknown Channel
+2024-10-16T06:35:44.156Z [info]: Server is listening on port 3000
+2024-10-16T06:35:44.902Z [info]: Logged in to Discord successfully
+2024-10-16T06:35:51.608Z [info]: Received webhook event for story ID: 2296
+2024-10-16T06:35:52.115Z [info]: Sent message to Discord channel 1280947308208590930: <@674714406218891327> New comment on [test for Devs](https://app.shortcut.com/dewiz/story/2296)
+2024-10-16T06:49:04.798Z [info]: Received webhook event for story ID: 2292
+2024-10-16T06:49:05.246Z [info]: Story "test for CORE" is ready for review. Workflow state ID: 500000189
+2024-10-16T06:49:05.247Z [info]: Last PR is "", last PR length "0"
+2024-10-16T06:49:05.247Z [info]: Sent message to Discord channel 1277602082630795335: [test for CORE](https://app.shortcut.com/dewiz/story/2292) is ready for review by <@1041280647655850064>
+2024-10-16T06:49:17.059Z [info]: Received webhook event for story ID: 2292
+2024-10-16T06:49:17.461Z [info]: Story "test for CORE" is ready for review. Workflow state ID: 500000186
+2024-10-16T06:49:17.462Z [info]: Last PR is "", last PR length "0"
+2024-10-16T06:49:17.463Z [info]: Sent message to Discord channel 1277602082630795335: [test for CORE](https://app.shortcut.com/dewiz/story/2292) is ready for review by <@1041280647655850064>
+2024-10-16T06:50:46.622Z [info]: Server is listening on port 3000
+2024-10-16T06:50:47.371Z [info]: Logged in to Discord successfully
+2024-10-16T06:50:55.442Z [info]: Received webhook event for story ID: 2292
+2024-10-16T06:51:04.272Z [info]: Received webhook event for story ID: 2292
+2024-10-16T06:51:04.732Z [info]: Story "test for CORE" is ready for review. Workflow state ID: 500000189
+2024-10-16T06:51:04.733Z [info]: Last PR is "", last PR length "0"
+2024-10-16T06:51:04.734Z [info]: Sent message to Discord channel 1277602082630795335: [test for CORE](https://app.shortcut.com/dewiz/story/2292) is ready for review by <@1041280647655850064>
+2024-10-16T06:51:09.494Z [info]: Received webhook event for story ID: 2292
+2024-10-16T06:51:23.743Z [info]: Received webhook event for story ID: 2292
+2024-10-16T06:51:37.046Z [info]: Received webhook event for story ID: 2292
+2024-10-16T06:51:37.395Z [info]: Sent message to Discord channel 1277602082630795335: <@674714406218891327> New comment on [test for CORE](https://app.shortcut.com/dewiz/story/2292)
+2024-10-16T06:51:57.682Z [info]: Received webhook event for story ID: 2292
+2024-10-16T06:51:58.222Z [info]: Sent message with mentions to Discord channel 1277602082630795335: <@1041280647655850064> New comment on [test for CORE](https://app.shortcut.com/dewiz/story/2292)
+2024-10-16T06:52:30.823Z [info]: Received webhook event for story ID: 2292
+2024-10-16T06:52:59.702Z [info]: Received webhook event for story ID: 2292
+2024-10-16T06:53:00.068Z [info]: Story "test for CORE" is ready for review. Workflow state ID: 500000189
+2024-10-16T06:53:00.068Z [info]: Last PR is "https://github.com/makerdao/endgame-toolkit/pull/30", last PR length "51"
+2024-10-16T06:53:00.068Z [info]: Sent message to Discord channel 1277602082630795335: [test for CORE](https://app.shortcut.com/dewiz/story/2292) is ready for review by <@1041280647655850064> Link to [PR](<https://github.com/makerdao/endgame-toolkit/pull/30>)
+2024-10-16T06:53:07.934Z [info]: Received webhook event for story ID: 2292
+2024-10-16T06:53:38.032Z [info]: Received webhook event for story ID: 2292
+2024-10-16T06:53:38.036Z [info]: Received webhook event for story ID: 2292
+2024-10-16T06:53:38.469Z [info]: Story "test for CORE" is ready for review. Workflow state ID: 500000189
+2024-10-16T06:53:38.469Z [info]: Last PR is "https://github.com/makerdao/endgame-toolkit/pull/30", last PR length "51"
+2024-10-16T06:53:38.470Z [info]: Sent message to Discord channel 1277602082630795335: [test for CORE](https://app.shortcut.com/dewiz/story/2292) is ready for review by <@1041280647655850064> Link to [PR](<https://github.com/makerdao/endgame-toolkit/pull/30>)
+2024-10-16T06:54:14.138Z [info]: Received webhook event for story ID: 2296
+2024-10-16T06:54:19.252Z [info]: Received webhook event for story ID: 2296
+2024-10-16T06:54:19.736Z [info]: Story "test for Devs" is ready for review. Workflow state ID: 500000009
+2024-10-16T06:54:19.736Z [info]: Last PR is "https://github.com/makerdao/endgame-toolkit/pull/30", last PR length "51"
+2024-10-16T06:54:19.737Z [info]: Sent message to Discord channel 1280947308208590930: [test for Devs](https://app.shortcut.com/dewiz/story/2296) is ready for review by <@674714406218891327>, <@1157492699415457892> Link to [PR](<https://github.com/makerdao/endgame-toolkit/pull/30>)
+2024-10-16T06:54:35.675Z [info]: Received webhook event for story ID: 2296
+2024-10-16T06:54:36.015Z [info]: Sent message to Discord channel 1280947308208590930: <@674714406218891327> New comment on [test for Devs](https://app.shortcut.com/dewiz/story/2296)
+2024-10-16T06:54:49.058Z [info]: Received webhook event for story ID: 2296
+2024-10-16T06:54:49.459Z [info]: Sent message with mentions to Discord channel 1280947308208590930: <@1041280647655850064> New comment on [test for Devs](https://app.shortcut.com/dewiz/story/2296)
+2024-10-16T06:54:58.519Z [info]: Received webhook event for story ID: 2296
+2024-10-16T06:55:10.902Z [info]: Received webhook event for story ID: 2296
+2024-10-16T06:55:11.231Z [info]: Sent message to Discord channel 1280947308208590930: <@674714406218891327> New comment on [test for Devs](https://app.shortcut.com/dewiz/story/2296)
+2024-10-16T06:55:23.560Z [info]: Received webhook event for story ID: 2296
+2024-10-16T06:55:23.933Z [info]: Sent message with mentions to Discord channel 1280947308208590930: <@1041280647655850064> New comment on [test for Devs](https://app.shortcut.com/dewiz/story/2296)
+2024-10-16T06:55:28.714Z [info]: Received webhook event for story ID: 2296
+2024-10-16T06:55:33.988Z [info]: Received webhook event for story ID: 2296
