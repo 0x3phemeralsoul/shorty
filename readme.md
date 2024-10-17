@@ -15,3 +15,9 @@ open `http://127.0.0.1:4040` on your browser to see events coming in, you can re
 `docker build -t shorty-app .`
 
 `docker run -ti --name shorty -v $(pwd)/dev/shorty/:/usr/src/app/ -p 3000:3000 shorty-app`
+
+
+# install Discord bot in new server
+
+
+https://pipedream.com/apps/discord-bot#getting-started
