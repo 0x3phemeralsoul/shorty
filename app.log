@@ -878,3 +878,5 @@ channel_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
 2024-10-16T12:52:13.356Z [info]: Story "(AUDIT Sept 23rd) As a Dewiz dev, I want to enable Maker Core to react fast under Oracle, Liquidation or DDM malfunction" is ready for review. Workflow state ID: 500000009
 2024-10-16T12:52:13.356Z [info]: Last PR is "https://github.com/dewiz-xyz/dss-emergency-spells/pull/1", last PR length "56"
 2024-10-16T12:52:13.357Z [info]: Sent message to Discord channel 1280947308208590930: [(AUDIT Sept 23rd) As a Dewiz dev, I want to enable Maker Core to react fast under Oracle, Liquidation or DDM malfunction](https://app.shortcut.com/dewiz/story/1943) is ready for review by <undefined>, <undefined>, <undefined>, <undefined>, <undefined> Link to [PR](<https://github.com/dewiz-xyz/dss-emergency-spells/pull/1>)
+2024-10-18T09:30:50.384Z [info]: Server is listening on port 3000
+2024-10-18T09:30:51.848Z [info]: Logged in to Discord successfully

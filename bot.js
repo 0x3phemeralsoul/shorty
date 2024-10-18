@@ -74,49 +74,52 @@ nickname_users.set('0xp3th1um', '@1138099723807494295'); // p3th1um */
 
 // Endpoint to receive webhook events
 app.post('/', async (req, res) => {
-    const event = req.body;
-    let story_id = 0;
-    for (action in event.actions) {
-        //checking the ID from the story, not from the comment or any other item, just the story
-        if(event.actions[action].entity_type == 'story' && event.actions[action].action == 'update' ){
-            story_id = event.actions[action].id
+    try {
+        const event = req.body;
+        let story_id = 0;
+        for (action in event.actions) {
+            //checking the ID from the story, not from the comment or any other item, just the story
+            if(event.actions[action].entity_type == 'story' && event.actions[action].action == 'update' ){
+                story_id = event.actions[action].id
+            }
         }
-    }
-    
-    logger.info(`Received webhook event for story ID: ${story_id}`);
-    let in_review_workflow_state_id = 0;
-    let discord_channel = 0;
-
-    // Fetch the story details using Shortcut API
-    const story = await axios.get(`https://api.app.shortcut.com/api/v3/stories/${story_id}`, {
-        headers: {
-            "Shortcut-Token": SHORTCUT_API_TOKEN,
-            "Content-Type": "application/json"
-        }
-    });
-
-    console.log(story)
-
-    //TODO: add all workflow states from each workflow cuz then I can tell that a comment is done on a non-review state.
-    // detect if the ticket is for CORE or for Devs.
-    if (story.data.workflow_id == OPERATIONAL_TASKS_WORKFLOW_ID) {
-        discord_channel = CORE_DISCORD_CHANNEL_ID;
-    }
-    if (story.data.workflow_id  == PRODUCT_DEVELOPMENT_WORKFLOW_ID) {
-        discord_channel = DEV_DISCORD_CHANNEL_ID;
-    }
-    //---------------------------------    
-    //
-    // the webhook event is a IN REVIEW state change
-    //
-    //---------------------------------
-    if ('changes' in event.actions[0] && 'workflow_state_id' in event.actions[0].changes) {
-        in_review_workflow_state_id = event.actions[0].changes.workflow_state_id.new;
-    }
-    if (in_review_workflow_state_id == PRODUCT_DEVELOPEMENT_READY_FOR_REVIEW_STATE_ID || in_review_workflow_state_id == OPERATIONAL_TASKS_READY_FOR_REVIEW_STATE_ID) {
         
+        logger.info(`Received webhook event for story ID: ${story_id}`);
+        let in_review_workflow_state_id = 0;
+        let discord_channel = 0;
 
-        try {
+        // Fetch the story details using Shortcut API
+        const story = await axios.get(`https://api.app.shortcut.com/api/v3/stories/${story_id}`, {
+            headers: {
+                "Shortcut-Token": SHORTCUT_API_TOKEN,
+                "Content-Type": "application/json"
+            }
+        });
+
+        console.log(story)
+
+        //TODO: add all workflow states from each workflow cuz then I can tell that a comment is done on a non-review state.
+        // detect if the ticket is for CORE or for Devs.
+        if (story.data.workflow_id == OPERATIONAL_TASKS_WORKFLOW_ID) {
+            discord_channel = CORE_DISCORD_CHANNEL_ID;
+        }
+        if (story.data.workflow_id  == PRODUCT_DEVELOPMENT_WORKFLOW_ID) {
+            discord_channel = DEV_DISCORD_CHANNEL_ID;
+        }
+        //---------------------------------    
+        //
+        // the webhook event is a IN REVIEW state change
+        //
+        //---------------------------------
+        if ('changes' in event.actions[0] && 'workflow_state_id' in event.actions[0].changes) {
+            in_review_workflow_state_id = event.actions[0].changes.workflow_state_id.new;
+        }
+        if (in_review_workflow_state_id == PRODUCT_DEVELOPEMENT_READY_FOR_REVIEW_STATE_ID || in_review_workflow_state_id == OPERATIONAL_TASKS_READY_FOR_REVIEW_STATE_ID) 
+            {
+
+            
+
+
 
             const story_data = story.data;
             const story_url = story_data.app_url;
@@ -163,17 +166,14 @@ app.post('/', async (req, res) => {
             }
 
         
-        } catch (error) {
-            logger.error('Error processing event:', error);
-            res.status(500).send('Internal Server Error');
-        }
+    
     //---------------------------------    
     //
     // the webhook event is a COMMENT
     //
     //---------------------------------
-    } else{
-        try{
+        } else{
+
         
             // if the story is not in review state change, then it is a comment that is worth notifying, if the story is in review state change, the the Review message is more relevant than the comment cuz the comment is the PR and the PR will be in the Review discord message
             // Check for new comments in the event
@@ -234,12 +234,13 @@ app.post('/', async (req, res) => {
 
                     }
                 }
-        } catch (error) {
+        }
+     } catch (error) {
             logger.error('Error processing event:', error);
             res.status(500).send('Internal Server Error');
             }
 
-        }
+
 });
 
 // Start the Express server
