@@ -12,7 +12,7 @@ services:
   ngrok:
     image: ngrok/ngrok:latest
     container_name: shorty-ngrok
-    command: http --authtoken ${NGROK_AUTH_TOKEN} --url=growing-grub-crisp.ngrok-free.app 3050
+    command: http --authtoken ${NGROK_AUTH_TOKEN} app:3000
     networks:
       - shorty-network
     depends_on:
