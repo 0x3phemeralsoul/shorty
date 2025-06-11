@@ -12,9 +12,8 @@ services:
   ngrok:
     image: ngrok/ngrok:latest
     container_name: shorty-ngrok
-    command: http --authtoken ${NGROK_AUTH_TOKEN} app:3000
-    networks:
-      - shorty-network
+    command: http --authtoken ${NGROK_AUTH_TOKEN} host.docker.internal:3050
+    network_mode: "host"
     depends_on:
       - app
 
