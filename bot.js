@@ -64,6 +64,8 @@ users.set('6380d6b1-fb27-4965-bfa2-f08f2c948292', '@593551141921357862'); // amu
 users.set('6380d4da-0ae7-4ca5-a7f4-59ba335b4460', '@1041280647655850064'); // 3phy
 users.set('656f49bd-1c7a-42bb-874e-2a028317b06b', '@1157492699415457892'); // oddaf
 users.set('64d0f1b4-991e-4d95-b3fe-521a7cd53e04', '@1138099723807494295'); // p3th1um
+users.set('67cf13d4-6934-4c04-a577-76ac892ea01f', '@351468603209547798'); // pedro                                                                                                            
+users.set('67aa8c53-70a9-460f-afba-c98aca3c8923', '@871743111867564124'); // basset
 
 /* let nickname_users = new Map()
 nickname_users.set('0xdecr1pto8698', '@674714406218891327'); // decr1pto
