@@ -1,4 +1,4 @@
-import { Client, GatewayIntentBits, TextChannel } from 'discord.js';
+import { Client, GatewayIntentBits, TextChannel, SlashCommandBuilder, REST, Routes, CommandInteraction, CacheType } from 'discord.js';
 import { AppConfig, Logger } from './types';
 
 export class DiscordService {
@@ -21,9 +21,10 @@ export class DiscordService {
    * Sets up Discord client event handlers
    */
   private setupEventHandlers(): void {
-    this.client.on('ready', () => {
+    this.client.on('ready', async () => {
       this.isReady = true;
       this.logger.info(`Discord bot logged in as ${this.client.user?.tag}`);
+      await this.registerSlashCommands();
     });
 
     this.client.on('error', (error: Error) => {
@@ -34,6 +35,77 @@ export class DiscordService {
       this.isReady = false;
       this.logger.warn('Discord client disconnected');
     });
+
+    this.client.on('interactionCreate', async (interaction) => {
+      if (!interaction.isChatInputCommand()) return;
+      await this.handleSlashCommand(interaction);
+    });
+  }
+
+  /**
+   * Registers slash commands with Discord
+   */
+  private async registerSlashCommands(): Promise<void> {
+    try {
+      const commands = [
+        new SlashCommandBuilder()
+          .setName('review')
+          .setDescription('Get your assigned stories in the current iteration')
+          .addUserOption(option =>
+            option.setName('user')
+              .setDescription('The user to get stories for (defaults to yourself)')
+              .setRequired(false)
+          )
+      ];
+
+      const rest = new REST({ version: '10' }).setToken(this.config.env.DISCORD_TOKEN);
+
+      if (this.client.user) {
+        await rest.put(
+          Routes.applicationCommands(this.client.user.id),
+          { body: commands }
+        );
+        this.logger.info('Successfully registered slash commands');
+      }
+    } catch (error) {
+      this.logger.error('Failed to register slash commands:', error);
+    }
+  }
+
+  /**
+   * Handles slash command interactions
+   */
+  private async handleSlashCommand(interaction: CommandInteraction<CacheType>): Promise<void> {
+    if (interaction.commandName === 'review') {
+      await this.handleReviewCommand(interaction);
+    }
+  }
+
+  /**
+   * Handles the /review command
+   */
+  private async handleReviewCommand(interaction: CommandInteraction<CacheType>): Promise<void> {
+    try {
+      await interaction.deferReply({ ephemeral: true });
+
+      const targetUser = interaction.options.get('user')?.user || interaction.user;
+      const discordUserId = targetUser.id;
+
+      this.logger.info(`Review command requested for Discord user: ${discordUserId}`);
+
+      // This will be called from the bot class which has access to the review service
+      // For now, we'll emit an event that the bot can listen to
+      this.client.emit('reviewCommand', interaction, discordUserId);
+
+    } catch (error) {
+      this.logger.error('Error handling review command:', error);
+      
+      if (interaction.deferred) {
+        await interaction.editReply('Sorry, there was an error processing your request.');
+      } else {
+        await interaction.reply({ content: 'Sorry, there was an error processing your request.', ephemeral: true });
+      }
+    }
   }
 
   /**
@@ -118,6 +190,52 @@ export class DiscordService {
       .map(userId => this.config.userMappings.get(userId))
       .filter((mention): mention is string => mention !== undefined)
       .map(mention => `<${mention}>`);
+  }
+
+  /**
+   * Maps a Discord user ID to a Shortcut user ID
+   * @param discordUserId - The Discord user ID
+   * @returns The corresponding Shortcut user ID, or null if not found
+   */
+  mapDiscordUserToShortcutUser(discordUserId: string): string | null {
+    for (const [shortcutUserId, discordMention] of this.config.userMappings.entries()) {
+      // Remove the @ symbol and angle brackets from the mention to get the Discord user ID
+      const cleanDiscordId = discordMention.replace(/[@<>]/g, '');
+      if (cleanDiscordId === discordUserId) {
+        return shortcutUserId;
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Replies to a slash command interaction
+   * @param interaction - The command interaction
+   * @param message - The message to send
+   * @param ephemeral - Whether the message should be ephemeral (default: true)
+   */
+  async replyToInteraction(
+    interaction: CommandInteraction<CacheType>, 
+    message: string, 
+    ephemeral: boolean = true
+  ): Promise<void> {
+    try {
+      if (interaction.deferred) {
+        await interaction.editReply(message);
+      } else {
+        await interaction.reply({ content: message, ephemeral });
+      }
+    } catch (error) {
+      this.logger.error('Failed to reply to interaction:', error);
+    }
+  }
+
+  /**
+   * Gets the Discord client for event listening
+   * @returns The Discord client instance
+   */
+  getClient(): Client {
+    return this.client;
   }
 
   /**

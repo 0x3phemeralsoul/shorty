@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { ShortcutStory, ShortcutApiResponse, AppConfig, Logger } from './types';
+import { ShortcutStory, ShortcutApiResponse, ShortcutIteration, SearchStoriesRequest, AppConfig, Logger } from './types';
 
 export class ShortcutService {
   private config: AppConfig;
@@ -52,6 +52,126 @@ export class ShortcutService {
   }
 
   /**
+   * Fetches all iterations from the Shortcut API
+   * @returns Promise that resolves to an array of iterations
+   */
+  async getIterations(): Promise<ShortcutIteration[]> {
+    try {
+      this.logger.debug('Fetching iterations from Shortcut API');
+      
+      const response: AxiosResponse<ShortcutIteration[]> = await axios.get(
+        `${this.baseUrl}/iterations`,
+        {
+          headers: {
+            'Shortcut-Token': this.config.env.SHORTCUT_API_TOKEN,
+            'Content-Type': 'application/json'
+          },
+          timeout: 10000
+        }
+      );
+
+      this.logger.debug(`Successfully fetched ${response.data.length} iterations`);
+      return response.data;
+    } catch (error) {
+      this.logger.error('Failed to fetch iterations from Shortcut API:', error);
+      
+      if (axios.isAxiosError(error)) {
+        if (error.response) {
+          throw new Error(`Shortcut API error: ${error.response.status} - ${error.response.statusText}`);
+        } else if (error.request) {
+          throw new Error('Shortcut API request failed: No response received');
+        } else {
+          throw new Error(`Shortcut API request setup error: ${error.message}`);
+        }
+      }
+      
+      throw new Error(`Unknown error fetching iterations: ${error}`);
+    }
+  }
+
+  /**
+   * Finds the current "started" iteration
+   * @returns Promise that resolves to the started iteration, or null if not found
+   */
+  async getCurrentIteration(): Promise<ShortcutIteration | null> {
+    try {
+      const iterations = await this.getIterations();
+      
+      // Sort iterations by created_at in descending order (newest first)
+      const sortedIterations = iterations.sort((a, b) => 
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+      );
+
+      // Look for the first iteration with status "started"
+      const startedIteration = sortedIterations.find(iteration => iteration.status === 'started');
+      
+      if (startedIteration) {
+        this.logger.debug(`Found started iteration: ${startedIteration.name} (ID: ${startedIteration.id})`);
+        return startedIteration;
+      }
+
+      this.logger.warn('No started iteration found');
+      return null;
+    } catch (error) {
+      this.logger.error('Failed to get current iteration:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Searches for stories using the Shortcut API
+   * @param searchParams - The search parameters
+   * @returns Promise that resolves to an array of stories
+   */
+  async searchStories(searchParams: SearchStoriesRequest): Promise<ShortcutStory[]> {
+    try {
+      this.logger.debug('Searching stories with params:', searchParams);
+      
+      const response: AxiosResponse<{ data: ShortcutStory[] }> = await axios.post(
+        `${this.baseUrl}/stories/search`,
+        searchParams,
+        {
+          headers: {
+            'Shortcut-Token': this.config.env.SHORTCUT_API_TOKEN,
+            'Content-Type': 'application/json'
+          },
+          timeout: 10000
+        }
+      );
+
+      this.logger.debug(`Found ${response.data.data.length} stories`);
+      return response.data.data;
+    } catch (error) {
+      this.logger.error('Failed to search stories:', error);
+      
+      if (axios.isAxiosError(error)) {
+        if (error.response) {
+          throw new Error(`Shortcut API error: ${error.response.status} - ${error.response.statusText}`);
+        } else if (error.request) {
+          throw new Error('Shortcut API request failed: No response received');
+        } else {
+          throw new Error(`Shortcut API request setup error: ${error.message}`);
+        }
+      }
+      
+      throw new Error(`Unknown error searching stories: ${error}`);
+    }
+  }
+
+  /**
+   * Gets stories for a specific iteration
+   * @param iterationId - The iteration ID
+   * @returns Promise that resolves to an array of stories
+   */
+  async getStoriesForIteration(iterationId: number): Promise<ShortcutStory[]> {
+    return this.searchStories({
+      iteration_id: iterationId,
+      archived: false,
+      page_size: 1000 // Get all stories
+    });
+  }
+
+  /**
    * Checks if a story belongs to the Product Development workflow
    * @param story - The story to check
    * @returns True if the story is in the Product Development workflow
@@ -67,6 +187,15 @@ export class ShortcutService {
    */
   isOperationalTasksStory(story: ShortcutStory): boolean {
     return story.workflow_id === this.config.workflowIds.operationalTasks;
+  }
+
+  /**
+   * Checks if a story is in a relevant workflow (Product Development or Operational Tasks)
+   * @param story - The story to check
+   * @returns True if the story is in a relevant workflow
+   */
+  isRelevantStory(story: ShortcutStory): boolean {
+    return this.isProductDevelopmentStory(story) || this.isOperationalTasksStory(story);
   }
 
   /**

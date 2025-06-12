@@ -8,17 +8,21 @@ const config_1 = require("./config");
 const logger_1 = require("./logger");
 const discord_1 = require("./discord");
 const shortcut_1 = require("./shortcut");
+const review_1 = require("./review");
 const pr_1 = require("./pr");
 class ShortyBot {
     app;
     discordService;
     shortcutService;
+    reviewService;
     constructor() {
         this.app = (0, express_1.default)();
         this.app.use(express_1.default.json());
         this.discordService = new discord_1.DiscordService(config_1.appConfig, logger_1.logger);
         this.shortcutService = new shortcut_1.ShortcutService(config_1.appConfig, logger_1.logger);
+        this.reviewService = new review_1.ReviewService(this.shortcutService, this.discordService, logger_1.logger);
         this.setupRoutes();
+        this.setupDiscordEventHandlers();
     }
     /**
      * Sets up Express routes
@@ -32,6 +36,14 @@ class ShortyBot {
                 discord: this.discordService.isClientReady(),
                 timestamp: new Date().toISOString()
             });
+        });
+    }
+    /**
+     * Sets up Discord event handlers for slash commands
+     */
+    setupDiscordEventHandlers() {
+        this.discordService.getClient().on('reviewCommand', async (interaction, discordUserId) => {
+            await this.reviewService.handleReviewCommand(interaction, discordUserId);
         });
     }
     /**

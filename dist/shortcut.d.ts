@@ -1,4 +1,4 @@
-import { ShortcutStory, AppConfig, Logger } from './types';
+import { ShortcutStory, ShortcutIteration, SearchStoriesRequest, AppConfig, Logger } from './types';
 export declare class ShortcutService {
     private config;
     private logger;
@@ -12,6 +12,28 @@ export declare class ShortcutService {
      */
     getStory(storyId: number): Promise<ShortcutStory>;
     /**
+     * Fetches all iterations from the Shortcut API
+     * @returns Promise that resolves to an array of iterations
+     */
+    getIterations(): Promise<ShortcutIteration[]>;
+    /**
+     * Finds the current "started" iteration
+     * @returns Promise that resolves to the started iteration, or null if not found
+     */
+    getCurrentIteration(): Promise<ShortcutIteration | null>;
+    /**
+     * Searches for stories using the Shortcut API
+     * @param searchParams - The search parameters
+     * @returns Promise that resolves to an array of stories
+     */
+    searchStories(searchParams: SearchStoriesRequest): Promise<ShortcutStory[]>;
+    /**
+     * Gets stories for a specific iteration
+     * @param iterationId - The iteration ID
+     * @returns Promise that resolves to an array of stories
+     */
+    getStoriesForIteration(iterationId: number): Promise<ShortcutStory[]>;
+    /**
      * Checks if a story belongs to the Product Development workflow
      * @param story - The story to check
      * @returns True if the story is in the Product Development workflow
@@ -23,6 +45,12 @@ export declare class ShortcutService {
      * @returns True if the story is in the Operational Tasks workflow
      */
     isOperationalTasksStory(story: ShortcutStory): boolean;
+    /**
+     * Checks if a story is in a relevant workflow (Product Development or Operational Tasks)
+     * @param story - The story to check
+     * @returns True if the story is in a relevant workflow
+     */
+    isRelevantStory(story: ShortcutStory): boolean;
     /**
      * Checks if a story is in a "Ready for Review" state
      * @param story - The story to check

@@ -4,17 +4,20 @@ import { appConfig } from './config';
 import { logger } from './logger';
 import { DiscordService } from './discord';
 import { ShortcutService } from './shortcut';
+import { ReviewService } from './review';
 import { 
   extractGitHubPullRequestUrls, 
   getComments, 
   isCommentWithPullRequest, 
   getLastPullRequestUrl 
 } from './pr';
+import { CommandInteraction, CacheType } from 'discord.js';
 
 class ShortyBot {
   private app: Application;
   private discordService: DiscordService;
   private shortcutService: ShortcutService;
+  private reviewService: ReviewService;
 
   constructor() {
     this.app = express();
@@ -22,8 +25,10 @@ class ShortyBot {
     
     this.discordService = new DiscordService(appConfig, logger);
     this.shortcutService = new ShortcutService(appConfig, logger);
+    this.reviewService = new ReviewService(this.shortcutService, this.discordService, logger);
     
     this.setupRoutes();
+    this.setupDiscordEventHandlers();
   }
 
   /**
@@ -39,6 +44,15 @@ class ShortyBot {
         discord: this.discordService.isClientReady(),
         timestamp: new Date().toISOString()
       });
+    });
+  }
+
+  /**
+   * Sets up Discord event handlers for slash commands
+   */
+  private setupDiscordEventHandlers(): void {
+    this.discordService.getClient().on('reviewCommand', async (interaction: CommandInteraction<CacheType>, discordUserId: string) => {
+      await this.reviewService.handleReviewCommand(interaction, discordUserId);
     });
   }
 

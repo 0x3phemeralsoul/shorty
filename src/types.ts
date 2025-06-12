@@ -84,6 +84,45 @@ export interface ShortcutStory {
   workflow_state_id_history: number[];
 }
 
+// Iteration types
+export interface ShortcutIteration {
+  id: number;
+  name: string;
+  description?: string;
+  status: 'unstarted' | 'started' | 'done';
+  start_date: string;
+  end_date: string;
+  created_at: string;
+  updated_at: string;
+  app_url: string;
+  entity_type: 'iteration';
+  follower_ids: string[];
+  group_id?: string;
+  group_mention_ids: string[];
+  label_ids: number[];
+  member_mention_ids: string[];
+  mention_ids: string[];
+  stats: {
+    num_points: number;
+    num_points_done: number;
+    num_points_started: number;
+    num_points_unstarted: number;
+    num_stories: number;
+    num_stories_done: number;
+    num_stories_started: number;
+    num_stories_unstarted: number;
+  };
+}
+
+// Search stories request body
+export interface SearchStoriesRequest {
+  iteration_id?: number;
+  workflow_state_ids?: number[];
+  owner_id?: string;
+  archived?: boolean;
+  page_size?: number;
+}
+
 // Webhook event types
 export interface WorkflowStateChange {
   new: number;
@@ -140,6 +179,12 @@ export interface WebhookEvent {
 export interface UserMapping {
   shortcutId: string;
   discordId: string;
+}
+
+// Review command types
+export interface UserStory {
+  name: string;
+  app_url: string;
 }
 
 // Application configuration

@@ -1,3 +1,4 @@
+import { Client, CommandInteraction, CacheType } from 'discord.js';
 import { AppConfig, Logger } from './types';
 export declare class DiscordService {
     private client;
@@ -9,6 +10,18 @@ export declare class DiscordService {
      * Sets up Discord client event handlers
      */
     private setupEventHandlers;
+    /**
+     * Registers slash commands with Discord
+     */
+    private registerSlashCommands;
+    /**
+     * Handles slash command interactions
+     */
+    private handleSlashCommand;
+    /**
+     * Handles the /review command
+     */
+    private handleReviewCommand;
     /**
      * Logs in to Discord with retry mechanism
      * @param retries - Current retry count
@@ -40,6 +53,24 @@ export declare class DiscordService {
      * @returns Array of Discord mention strings
      */
     mapUsersToDiscordMentions(userIds: string[]): string[];
+    /**
+     * Maps a Discord user ID to a Shortcut user ID
+     * @param discordUserId - The Discord user ID
+     * @returns The corresponding Shortcut user ID, or null if not found
+     */
+    mapDiscordUserToShortcutUser(discordUserId: string): string | null;
+    /**
+     * Replies to a slash command interaction
+     * @param interaction - The command interaction
+     * @param message - The message to send
+     * @param ephemeral - Whether the message should be ephemeral (default: true)
+     */
+    replyToInteraction(interaction: CommandInteraction<CacheType>, message: string, ephemeral?: boolean): Promise<void>;
+    /**
+     * Gets the Discord client for event listening
+     * @returns The Discord client instance
+     */
+    getClient(): Client;
     /**
      * Checks if the Discord client is ready
      * @returns True if the client is ready, false otherwise
