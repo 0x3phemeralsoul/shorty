@@ -33,41 +33,54 @@ class ReviewService {
             }
             this.logger.debug(`Found current iteration: ${currentIteration.name} (ID: ${currentIteration.id})`);
             // Debug: Log workflow configuration
-            this.logger.debug(`Workflow configuration - Product Development: ${this.shortcutService.getConfig().workflowIds.productDevelopment}, Operational Tasks: ${this.shortcutService.getConfig().workflowIds.operationalTasks}`);
+            this.logger.info(`Workflow configuration - Product Development: ${this.shortcutService.getConfig().workflowIds.productDevelopment}, Operational Tasks: ${this.shortcutService.getConfig().workflowIds.operationalTasks}`);
             // Step 3: Get all stories for the current iteration
             const iterationStories = await this.shortcutService.getStoriesForIteration(currentIteration.id);
             this.logger.info(`Found ${iterationStories.length} stories in iteration ${currentIteration.id}`);
             // Debug: Log all story details
             iterationStories.forEach((story, index) => {
-                this.logger.debug(`Story ${index + 1}: ID=${story.id}, Name="${story.name}", WorkflowID=${story.workflow_id}, OwnerIDs=${JSON.stringify(story.owner_ids)}, Tasks=${story.tasks ? story.tasks.length : 'undefined'}`);
+                this.logger.info(`Story ${index + 1}: ID=${story.id}, Name="${story.name}", WorkflowID=${story.workflow_id}, OwnerIDs=${JSON.stringify(story.owner_ids)}, Tasks=${story.tasks ? story.tasks.length : 'undefined'}`);
                 if (story.tasks && story.tasks.length > 0) {
                     story.tasks.forEach((task, taskIndex) => {
-                        this.logger.debug(`  Task ${taskIndex + 1}: "${task.description}", OwnerIDs=${JSON.stringify(task.owner_ids)}`);
+                        this.logger.info(`  Task ${taskIndex + 1}: "${task.description}", OwnerIDs=${JSON.stringify(task.owner_ids)}`);
                     });
                 }
             });
+            // Special check for story 2925
+            const targetStory = iterationStories.find(story => story.id === 2925);
+            if (targetStory) {
+                this.logger.info(`🎯 FOUND TARGET STORY 2925: Name="${targetStory.name}", WorkflowID=${targetStory.workflow_id}, OwnerIDs=${JSON.stringify(targetStory.owner_ids)}, Tasks=${targetStory.tasks ? targetStory.tasks.length : 'undefined'}`);
+                if (targetStory.tasks && targetStory.tasks.length > 0) {
+                    targetStory.tasks.forEach((task, taskIndex) => {
+                        this.logger.info(`🎯   Task ${taskIndex + 1}: "${task.description}", OwnerIDs=${JSON.stringify(task.owner_ids)}`);
+                    });
+                }
+            }
+            else {
+                this.logger.info(`❌ TARGET STORY 2925 NOT FOUND in iteration stories`);
+            }
             // Step 4: Filter for relevant stories (Product Development or Operational Tasks workflows)
             const relevantStories = iterationStories.filter(story => this.shortcutService.isRelevantStory(story));
             this.logger.info(`Found ${relevantStories.length} relevant stories (after workflow filtering)`);
             // Debug: Log which stories were filtered out
             const filteredOutStories = iterationStories.filter(story => !this.shortcutService.isRelevantStory(story));
             if (filteredOutStories.length > 0) {
-                this.logger.debug(`Filtered out ${filteredOutStories.length} stories with workflow IDs: ${filteredOutStories.map(s => s.workflow_id).join(', ')}`);
+                this.logger.info(`Filtered out ${filteredOutStories.length} stories with workflow IDs: ${filteredOutStories.map(s => s.workflow_id).join(', ')}`);
             }
             // Step 5: Find stories where the user is assigned to tasks
             const userStories = [];
             for (const story of relevantStories) {
                 const taskOwnerIds = this.shortcutService.getTaskOwnerIds(story);
-                this.logger.debug(`Story "${story.name}" (ID: ${story.id}) - Task owner IDs: ${JSON.stringify(taskOwnerIds)}, Looking for: ${shortcutUserId}`);
+                this.logger.info(`Story "${story.name}" (ID: ${story.id}) - Task owner IDs: ${JSON.stringify(taskOwnerIds)}, Looking for: ${shortcutUserId}`);
                 if (taskOwnerIds.includes(shortcutUserId)) {
-                    this.logger.debug(`✓ Found match for user ${shortcutUserId} in story "${story.name}"`);
+                    this.logger.info(`✓ Found match for user ${shortcutUserId} in story "${story.name}"`);
                     userStories.push({
                         name: story.name,
                         app_url: story.app_url
                     });
                 }
                 else {
-                    this.logger.debug(`✗ No match for user ${shortcutUserId} in story "${story.name}"`);
+                    this.logger.info(`✗ No match for user ${shortcutUserId} in story "${story.name}"`);
                 }
             }
             this.logger.info(`Found ${userStories.length} stories assigned to user ${shortcutUserId}`);
