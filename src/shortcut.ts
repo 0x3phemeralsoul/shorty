@@ -127,7 +127,7 @@ export class ShortcutService {
     try {
       this.logger.debug('Searching stories with params:', searchParams);
       
-      const response: AxiosResponse<{ data: ShortcutStory[] }> = await axios.post(
+      const response: AxiosResponse<ShortcutStory[]> = await axios.post(
         `${this.baseUrl}/stories/search`,
         searchParams,
         {
@@ -139,8 +139,8 @@ export class ShortcutService {
         }
       );
 
-      this.logger.debug(`Found ${response.data.data.length} stories`);
-      return response.data.data;
+      this.logger.debug(`Found ${response.data.length} stories`);
+      return response.data;
     } catch (error) {
       this.logger.error('Failed to search stories:', error);
       

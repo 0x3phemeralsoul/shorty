@@ -119,8 +119,8 @@ class ShortcutService {
                 },
                 timeout: 10000
             });
-            this.logger.debug(`Found ${response.data.data.length} stories`);
-            return response.data.data;
+            this.logger.debug(`Found ${response.data.length} stories`);
+            return response.data;
         }
         catch (error) {
             this.logger.error('Failed to search stories:', error);
@@ -146,8 +146,7 @@ class ShortcutService {
     async getStoriesForIteration(iterationId) {
         return this.searchStories({
             iteration_id: iterationId,
-            archived: false,
-            page_size: 1000 // Get all stories
+            archived: false
         });
     }
     /**
