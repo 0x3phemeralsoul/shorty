@@ -12,6 +12,14 @@ export class ShortcutService {
   }
 
   /**
+   * Gets the configuration for debugging purposes
+   * @returns The app configuration
+   */
+  getConfig(): AppConfig {
+    return this.config;
+  }
+
+  /**
    * Fetches a story from the Shortcut API
    * @param storyId - The ID of the story to fetch
    * @returns Promise that resolves to the story data

@@ -5,6 +5,11 @@ export declare class ShortcutService {
     private baseUrl;
     constructor(config: AppConfig, logger: Logger);
     /**
+     * Gets the configuration for debugging purposes
+     * @returns The app configuration
+     */
+    getConfig(): AppConfig;
+    /**
      * Fetches a story from the Shortcut API
      * @param storyId - The ID of the story to fetch
      * @returns Promise that resolves to the story data

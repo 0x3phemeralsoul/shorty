@@ -49,17 +49,38 @@ export class ReviewService {
 
       this.logger.debug(`Found current iteration: ${currentIteration.name} (ID: ${currentIteration.id})`);
 
+      // Debug: Log workflow configuration
+      this.logger.debug(`Workflow configuration - Product Development: ${this.shortcutService.getConfig().workflowIds.productDevelopment}, Operational Tasks: ${this.shortcutService.getConfig().workflowIds.operationalTasks}`);
+
       // Step 3: Get all stories for the current iteration
       const iterationStories = await this.shortcutService.getStoriesForIteration(currentIteration.id);
       
-      this.logger.debug(`Found ${iterationStories.length} stories in iteration ${currentIteration.id}`);
+      this.logger.info(`Found ${iterationStories.length} stories in iteration ${currentIteration.id}`);
+      
+      // Debug: Log all story details
+      iterationStories.forEach((story, index) => {
+        this.logger.debug(`Story ${index + 1}: ID=${story.id}, Name="${story.name}", WorkflowID=${story.workflow_id}, OwnerIDs=${JSON.stringify(story.owner_ids)}, Tasks=${story.tasks ? story.tasks.length : 'undefined'}`);
+        if (story.tasks && story.tasks.length > 0) {
+          story.tasks.forEach((task, taskIndex) => {
+            this.logger.debug(`  Task ${taskIndex + 1}: "${task.description}", OwnerIDs=${JSON.stringify(task.owner_ids)}`);
+          });
+        }
+      });
 
       // Step 4: Filter for relevant stories (Product Development or Operational Tasks workflows)
       const relevantStories = iterationStories.filter(story => 
         this.shortcutService.isRelevantStory(story)
       );
 
-      this.logger.debug(`Found ${relevantStories.length} relevant stories`);
+      this.logger.info(`Found ${relevantStories.length} relevant stories (after workflow filtering)`);
+      
+      // Debug: Log which stories were filtered out
+      const filteredOutStories = iterationStories.filter(story => 
+        !this.shortcutService.isRelevantStory(story)
+      );
+      if (filteredOutStories.length > 0) {
+        this.logger.debug(`Filtered out ${filteredOutStories.length} stories with workflow IDs: ${filteredOutStories.map(s => s.workflow_id).join(', ')}`);
+      }
 
       // Step 5: Find stories where the user is assigned to tasks
       const userStories: UserStory[] = [];
@@ -67,15 +88,20 @@ export class ReviewService {
       for (const story of relevantStories) {
         const taskOwnerIds = this.shortcutService.getTaskOwnerIds(story);
         
+        this.logger.debug(`Story "${story.name}" (ID: ${story.id}) - Task owner IDs: ${JSON.stringify(taskOwnerIds)}, Looking for: ${shortcutUserId}`);
+        
         if (taskOwnerIds.includes(shortcutUserId)) {
+          this.logger.debug(`✓ Found match for user ${shortcutUserId} in story "${story.name}"`);
           userStories.push({
             name: story.name,
             app_url: story.app_url
           });
+        } else {
+          this.logger.debug(`✗ No match for user ${shortcutUserId} in story "${story.name}"`);
         }
       }
 
-      this.logger.debug(`Found ${userStories.length} stories assigned to user ${shortcutUserId}`);
+      this.logger.info(`Found ${userStories.length} stories assigned to user ${shortcutUserId}`);
 
       // Step 6: Format and send the response
       await this.sendReviewResponse(interaction, userStories, currentIteration.name);

@@ -14,6 +14,13 @@ class ShortcutService {
         this.logger = logger;
     }
     /**
+     * Gets the configuration for debugging purposes
+     * @returns The app configuration
+     */
+    getConfig() {
+        return this.config;
+    }
+    /**
      * Fetches a story from the Shortcut API
      * @param storyId - The ID of the story to fetch
      * @returns Promise that resolves to the story data
