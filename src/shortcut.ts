@@ -166,8 +166,7 @@ export class ShortcutService {
   async getStoriesForIteration(iterationId: number): Promise<ShortcutStory[]> {
     return this.searchStories({
       iteration_id: iterationId,
-      archived: false,
-      page_size: 1000 // Get all stories
+      archived: false
     });
   }
 
