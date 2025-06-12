@@ -12,10 +12,11 @@ services:
   ngrok:
     image: ngrok/ngrok:latest
     container_name: shorty-ngrok
-    command: http --url=growing-grub-crisp.ngrok-free.app --authtoken ${NGROK_AUTH_TOKEN} host.docker.internal:3050
-    network_mode: "host"
+    command: http --url=growing-grub-crisp.ngrok-free.app --authtoken ${NGROK_AUTH_TOKEN} app:3000
     ports:
       - "4041:4040"
+    networks:
+      - shorty-network
     depends_on:
       - app
 
