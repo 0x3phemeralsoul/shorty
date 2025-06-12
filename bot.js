@@ -78,12 +78,25 @@ nickname_users.set('0xp3th1um', '@1138099723807494295'); // p3th1um */
 app.post('/', async (req, res) => {
     try {
         const event = req.body;
+        
+        // Check if event.actions exists and is an array
+        if (!event.actions || !Array.isArray(event.actions) || event.actions.length === 0) {
+            logger.warn('Received webhook event with no actions');
+            return res.status(200).send('No actions to process');
+        }
+        
         let story_id = 0;
         for (action in event.actions) {
             //checking the ID from the story, not from the comment or any other item, just the story
             if(event.actions[action].entity_type == 'story' && event.actions[action].action == 'update' ){
                 story_id = event.actions[action].id
             }
+        }
+        
+        // If no story ID found, return early
+        if (story_id === 0) {
+            logger.warn('No story ID found in webhook event');
+            return res.status(200).send('No story ID to process');
         }
         
         logger.info(`Received webhook event for story ID: ${story_id}`);
@@ -113,7 +126,7 @@ app.post('/', async (req, res) => {
         // the webhook event is a IN REVIEW state change
         //
         //---------------------------------
-        if ('changes' in event.actions[0] && 'workflow_state_id' in event.actions[0].changes) {
+        if (event.actions[0] && 'changes' in event.actions[0] && 'workflow_state_id' in event.actions[0].changes) {
             in_review_workflow_state_id = event.actions[0].changes.workflow_state_id.new;
         }
         if (in_review_workflow_state_id == PRODUCT_DEVELOPEMENT_READY_FOR_REVIEW_STATE_ID || in_review_workflow_state_id == OPERATIONAL_TASKS_READY_FOR_REVIEW_STATE_ID) 
@@ -186,26 +199,30 @@ app.post('/', async (req, res) => {
             let mention_ids;
             let discord_mentions = []
             let is_comment_created = false;
-            event.actions.forEach(action => {
-                //Detecting a comment has been created and fetching the story the comment belongs to
-                if (action.action == 'create' && action.entity_type == 'story-comment') {
-                    is_comment_created = true;
-                    comment_text = action.text;
-                    author_id = action.author_id;
-                    if(action.hasOwnProperty('mention_ids')){
-                    mention_ids = action.mention_ids;
-                    discord_mentions = mention_ids.map(owner => `<${users.get(owner)}>`);
+            
+            // Safely iterate through actions
+            if (event.actions && Array.isArray(event.actions)) {
+                event.actions.forEach(action => {
+                    //Detecting a comment has been created and fetching the story the comment belongs to
+                    if (action.action == 'create' && action.entity_type == 'story-comment') {
+                        is_comment_created = true;
+                        comment_text = action.text;
+                        author_id = action.author_id;
+                        if(action.hasOwnProperty('mention_ids')){
+                        mention_ids = action.mention_ids;
+                        discord_mentions = mention_ids.map(owner => `<${users.get(owner)}>`);
+                        }
+                        
+                    }
+                    if (action.action == 'update' && action.entity_type == 'story') {  
+                        story_url = action.app_url;
+                        story_name = action.name;
+                        story_id = action.id
+
                     }
                     
-                }
-                if (action.action == 'update' && action.entity_type == 'story') {  
-                    story_url = action.app_url;
-                    story_name = action.name;
-                    story_id = action.id
-
-                }
-                
                 });
+            }
 
                     
                 if (is_comment_created && !isGitHubPullRequestUrls(comment_text)){
@@ -245,11 +262,17 @@ app.post('/', async (req, res) => {
 
 });
 
-// Start the Express server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    logger.info(`Server is listening on port ${PORT}`);
-});
+// Export the app for testing
+module.exports = app;
 
-// Start the login process with retries
-loginWithRetry(client);
+// Only start the server if this file is run directly (not imported for testing)
+if (require.main === module) {
+    // Start the Express server
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        logger.info(`Server is listening on port ${PORT}`);
+    });
+
+    // Start the login process with retries
+    loginWithRetry(client);
+}
