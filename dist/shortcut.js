@@ -203,6 +203,9 @@ class ShortcutService {
      * @returns Array of owner IDs
      */
     getTaskOwnerIds(story) {
+        if (!story.tasks || !Array.isArray(story.tasks)) {
+            return [];
+        }
         return story.tasks
             .map(task => task.owner_ids[0])
             .filter((ownerId) => ownerId !== undefined);
