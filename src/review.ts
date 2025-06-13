@@ -23,14 +23,14 @@ export class ReviewService {
     try {
       this.logger.info(`Processing review command for Discord user: ${discordUserId}`);
 
+      // Acknowledge the interaction immediately to prevent timeout
+      await interaction.deferReply();
+
       // Step 1: Map Discord user ID to Shortcut user ID
-      const shortcutUserId = this.discordService.mapDiscordUserToShortcutUser(discordUserId);
+      const shortcutUserId = this.discordService?.mapDiscordUserToShortcutUser(discordUserId);
       
       if (!shortcutUserId) {
-        await this.discordService.replyToInteraction(
-          interaction,
-          'Sorry, I could not find your Shortcut account. Please make sure you are mapped in the system.'
-        );
+        await interaction.editReply('Sorry, I could not find your Shortcut account. Please make sure you are mapped in the system.');
         return;
       }
 
@@ -40,10 +40,7 @@ export class ReviewService {
       const currentIteration = await this.shortcutService.getCurrentIteration();
       
       if (!currentIteration) {
-        await this.discordService.replyToInteraction(
-          interaction,
-          'No active iteration found. Please check if there is a started iteration in Shortcut.'
-        );
+        await interaction.editReply('No active iteration found. Please check if there is a started iteration in Shortcut.');
         return;
       }
 
@@ -57,16 +54,6 @@ export class ReviewService {
       
       this.logger.info(`Found ${iterationStories.length} stories in iteration ${currentIteration.id}`);
       
-      // Debug: Log all story details
-      iterationStories.forEach((story, index) => {
-        this.logger.info(`Story ${index + 1}: ID=${story.id}, Name="${story.name}", WorkflowID=${story.workflow_id}, OwnerIDs=${JSON.stringify(story.owner_ids)}, Tasks=${story.tasks ? story.tasks.length : 'undefined'}`);
-        if (story.tasks && story.tasks.length > 0) {
-          story.tasks.forEach((task, taskIndex) => {
-            this.logger.info(`  Task ${taskIndex + 1}: "${task.description}", OwnerIDs=${JSON.stringify(task.owner_ids)}`);
-          });
-        }
-      });
-
       // Special check for story 2925
       const targetStory = iterationStories.find(story => story.id === 2925);
       if (targetStory) {
@@ -136,10 +123,11 @@ export class ReviewService {
     } catch (error) {
       this.logger.error('Error processing review command:', error);
       
-      await this.discordService.replyToInteraction(
-        interaction,
-        'Sorry, there was an error retrieving your assigned stories. Please try again later.'
-      );
+      if (interaction.deferred) {
+        await interaction.editReply('Sorry, there was an error retrieving your assigned stories. Please try again later.');
+      } else {
+        await interaction.reply('Sorry, there was an error retrieving your assigned stories. Please try again later.');
+      }
     }
   }
 
@@ -155,10 +143,7 @@ export class ReviewService {
     iterationName: string
   ): Promise<void> {
     if (userStories.length === 0) {
-      await this.discordService.replyToInteraction(
-        interaction,
-        `No stories assigned to you in the current iteration: **${iterationName}**`
-      );
+      await interaction.editReply(`No stories assigned to you in the current iteration: **${iterationName}**`);
       return;
     }
 
@@ -169,6 +154,6 @@ export class ReviewService {
 
     const message = `**Your assigned stories in iteration: ${iterationName}**\n\n${storyLinks}`;
 
-    await this.discordService.replyToInteraction(interaction, message);
+    await interaction.editReply(message);
   }
 } 
