@@ -90,10 +90,25 @@ export class ReviewService {
         this.logger.info(`Filtered out ${filteredOutStories.length} stories with workflow IDs: ${filteredOutStories.map(s => s.workflow_id).join(', ')}`);
       }
 
-      // Step 5: Get full story details for relevant stories and check tasks
+      // Step 5: Filter for stories in "Ready for Review" state
+      const readyForReviewStories = relevantStories.filter(story => 
+        this.shortcutService.isStoryReadyForReview(story)
+      );
+
+      this.logger.info(`Found ${readyForReviewStories.length} stories ready for review (after workflow state filtering)`);
+      
+      // Debug: Log which stories were filtered out by workflow state
+      const notReadyStories = relevantStories.filter(story => 
+        !this.shortcutService.isStoryReadyForReview(story)
+      );
+      if (notReadyStories.length > 0) {
+        this.logger.info(`Filtered out ${notReadyStories.length} stories not in Ready for Review state with workflow state IDs: ${notReadyStories.map(s => s.workflow_state_id).join(', ')}`);
+      }
+
+      // Step 6: Get full story details for ready stories and check tasks
       const userStories: UserStory[] = [];
 
-      for (const story of relevantStories) {
+      for (const story of readyForReviewStories) {
         this.logger.info(`Fetching full details for story "${story.name}" (ID: ${story.id})`);
         const fullStory = await this.shortcutService.getStory(story.id);
         
@@ -125,7 +140,7 @@ export class ReviewService {
 
       this.logger.info(`Found ${userStories.length} stories assigned to user ${shortcutUserId}`);
 
-      // Step 6: Format and send the response
+      // Step 7: Format and send the response
       await this.sendReviewResponse(interaction, userStories, currentIteration.name);
 
     } catch (error) {
