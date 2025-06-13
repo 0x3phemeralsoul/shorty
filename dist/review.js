@@ -67,20 +67,31 @@ class ReviewService {
             if (filteredOutStories.length > 0) {
                 this.logger.info(`Filtered out ${filteredOutStories.length} stories with workflow IDs: ${filteredOutStories.map(s => s.workflow_id).join(', ')}`);
             }
-            // Step 5: Find stories where the user is assigned to tasks
+            // Step 5: Get full story details for relevant stories and check tasks
             const userStories = [];
             for (const story of relevantStories) {
-                const taskOwnerIds = this.shortcutService.getTaskOwnerIds(story);
-                this.logger.info(`Story "${story.name}" (ID: ${story.id}) - Task owner IDs: ${JSON.stringify(taskOwnerIds)}, Looking for: ${shortcutUserId}`);
-                if (taskOwnerIds.includes(shortcutUserId)) {
-                    this.logger.info(`✓ Found match for user ${shortcutUserId} in story "${story.name}"`);
-                    userStories.push({
-                        name: story.name,
-                        app_url: story.app_url
+                this.logger.info(`Fetching full details for story "${story.name}" (ID: ${story.id})`);
+                const fullStory = await this.shortcutService.getStory(story.id);
+                this.logger.info(`Story "${fullStory.name}" (ID: ${fullStory.id}) - Tasks: ${fullStory.tasks ? fullStory.tasks.length : 'undefined'}`);
+                if (fullStory.tasks && fullStory.tasks.length > 0) {
+                    fullStory.tasks.forEach((task, taskIndex) => {
+                        this.logger.info(`  Task ${taskIndex + 1}: "${task.description}", OwnerIDs=${JSON.stringify(task.owner_ids)}`);
                     });
+                    // Check if any task is assigned to the user
+                    const hasUserTask = fullStory.tasks.some(task => task.owner_ids && task.owner_ids.includes(shortcutUserId));
+                    if (hasUserTask) {
+                        this.logger.info(`✓ Found match for user ${shortcutUserId} in story "${fullStory.name}"`);
+                        userStories.push({
+                            name: fullStory.name,
+                            app_url: fullStory.app_url
+                        });
+                    }
+                    else {
+                        this.logger.info(`✗ No match for user ${shortcutUserId} in story "${fullStory.name}"`);
+                    }
                 }
                 else {
-                    this.logger.info(`✗ No match for user ${shortcutUserId} in story "${story.name}"`);
+                    this.logger.info(`✗ No tasks found in story "${fullStory.name}"`);
                 }
             }
             this.logger.info(`Found ${userStories.length} stories assigned to user ${shortcutUserId}`);
