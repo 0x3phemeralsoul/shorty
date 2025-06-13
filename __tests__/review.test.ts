@@ -143,6 +143,7 @@ describe('ReviewService', () => {
     mockShortcutService.getCurrentIteration.mockResolvedValue(mockIteration);
     mockShortcutService.getStoriesForIteration.mockResolvedValue([mockStoryData]);
     mockShortcutService.isRelevantStory.mockReturnValue(true);
+    mockShortcutService.isStoryReadyForReview.mockReturnValue(true);
     mockShortcutService.getStory.mockResolvedValue(mockStoryData);
     mockShortcutService.getConfig.mockReturnValue({
       workflowIds: {
@@ -206,6 +207,7 @@ describe('ReviewService', () => {
       const irrelevantStory = { ...mockStoryData, id: 9999, workflow_id: 999999999 };
       mockShortcutService.getStoriesForIteration.mockResolvedValue([mockStoryData, irrelevantStory]);
       mockShortcutService.isRelevantStory.mockImplementation((story) => story.workflow_id === 500000005);
+      mockShortcutService.isStoryReadyForReview.mockImplementation((story) => story.id === 2925);
 
       await reviewService.handleReviewCommand(mockInteraction, testDiscordUserId);
 
@@ -251,6 +253,7 @@ describe('ReviewService', () => {
       };
 
       mockShortcutService.getStoriesForIteration.mockResolvedValue([mockStoryData, secondStory]);
+      mockShortcutService.isStoryReadyForReview.mockReturnValue(true);
       mockShortcutService.getStory.mockImplementation((id) => {
         if (id === 2925) return Promise.resolve(mockStoryData);
         if (id === 2926) return Promise.resolve(secondStory);
@@ -296,6 +299,7 @@ describe('ReviewService', () => {
       expect(mockLogger.info).toHaveBeenCalledWith(`Processing review command for Discord user: ${testDiscordUserId}`);
       expect(mockLogger.info).toHaveBeenCalledWith('Found 1 stories in iteration 2860');
       expect(mockLogger.info).toHaveBeenCalledWith('Found 1 relevant stories (after workflow filtering)');
+      expect(mockLogger.info).toHaveBeenCalledWith('Found 1 stories ready for review (after workflow state filtering)');
       expect(mockLogger.info).toHaveBeenCalledWith(`Found 1 stories assigned to user ${testUserId}`);
     });
   });
