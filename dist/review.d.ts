@@ -6,7 +6,12 @@ export declare class ReviewService {
     private shortcutService;
     private discordService;
     private logger;
-    constructor(shortcutService: ShortcutService, discordService: DiscordService, logger: Logger);
+    constructor(shortcutService: ShortcutService, discordService: DiscordService | null, logger: Logger);
+    /**
+     * Sets the Discord service after construction
+     * @param discordService - The Discord service to set
+     */
+    setDiscordService(discordService: DiscordService): void;
     /**
      * Handles the review command for a Discord user
      * @param interaction - The Discord command interaction

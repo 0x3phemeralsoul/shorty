@@ -11,6 +11,13 @@ class ReviewService {
         this.logger = logger;
     }
     /**
+     * Sets the Discord service after construction
+     * @param discordService - The Discord service to set
+     */
+    setDiscordService(discordService) {
+        this.discordService = discordService;
+    }
+    /**
      * Handles the review command for a Discord user
      * @param interaction - The Discord command interaction
      * @param discordUserId - The Discord user ID to get stories for

@@ -1,19 +1,19 @@
 import { Client, GatewayIntentBits, TextChannel, SlashCommandBuilder, REST, Routes, CommandInteraction, CacheType } from 'discord.js';
 import { AppConfig, Logger } from './types';
+import { ReviewService } from './review';
 
 export class DiscordService {
   private client: Client;
   private config: AppConfig;
   private logger: Logger;
+  private reviewService: ReviewService;
   private isReady: boolean = false;
 
-  constructor(config: AppConfig, logger: Logger) {
+  constructor(config: AppConfig, logger: Logger, reviewService: ReviewService) {
+    this.client = new Client({ intents: [GatewayIntentBits.Guilds] });
     this.config = config;
     this.logger = logger;
-    this.client = new Client({ 
-      intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] 
-    });
-
+    this.reviewService = reviewService;
     this.setupEventHandlers();
   }
 
@@ -51,11 +51,6 @@ export class DiscordService {
         new SlashCommandBuilder()
           .setName('review')
           .setDescription('Get your assigned stories in the current iteration')
-          .addUserOption(option =>
-            option.setName('user')
-              .setDescription('The user to get stories for (defaults to yourself)')
-              .setRequired(false)
-          )
       ];
 
       const rest = new REST({ version: '10' }).setToken(this.config.env.DISCORD_TOKEN);
@@ -86,25 +81,14 @@ export class DiscordService {
    */
   private async handleReviewCommand(interaction: CommandInteraction<CacheType>): Promise<void> {
     try {
-      await interaction.deferReply({ ephemeral: true });
-
-      const targetUser = interaction.options.get('user')?.user || interaction.user;
-      const discordUserId = targetUser.id;
-
-      this.logger.info(`Review command requested for Discord user: ${discordUserId}`);
-
-      // This will be called from the bot class which has access to the review service
-      // For now, we'll emit an event that the bot can listen to
-      this.client.emit('reviewCommand', interaction, discordUserId);
-
+      this.logger.info(`Review command requested for Discord user: ${interaction.user.id}`);
+      await this.reviewService.handleReviewCommand(interaction, interaction.user.id);
     } catch (error) {
       this.logger.error('Error handling review command:', error);
-      
-      if (interaction.deferred) {
-        await interaction.editReply('Sorry, there was an error processing your request.');
-      } else {
-        await interaction.reply({ content: 'Sorry, there was an error processing your request.', ephemeral: true });
-      }
+      await this.replyToInteraction(
+        interaction,
+        'Sorry, there was an error processing your review command. Please try again later.'
+      );
     }
   }
 

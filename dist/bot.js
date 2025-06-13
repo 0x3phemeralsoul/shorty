@@ -18,9 +18,11 @@ class ShortyBot {
     constructor() {
         this.app = (0, express_1.default)();
         this.app.use(express_1.default.json());
-        this.discordService = new discord_1.DiscordService(config_1.appConfig, logger_1.logger);
         this.shortcutService = new shortcut_1.ShortcutService(config_1.appConfig, logger_1.logger);
-        this.reviewService = new review_1.ReviewService(this.shortcutService, this.discordService, logger_1.logger);
+        this.reviewService = new review_1.ReviewService(this.shortcutService, null, logger_1.logger);
+        this.discordService = new discord_1.DiscordService(config_1.appConfig, logger_1.logger, this.reviewService);
+        // Update the reviewService with the discordService reference
+        this.reviewService.setDiscordService(this.discordService);
         this.setupRoutes();
         this.setupDiscordEventHandlers();
     }

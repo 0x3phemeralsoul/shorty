@@ -23,9 +23,12 @@ class ShortyBot {
     this.app = express();
     this.app.use(express.json());
     
-    this.discordService = new DiscordService(appConfig, logger);
     this.shortcutService = new ShortcutService(appConfig, logger);
-    this.reviewService = new ReviewService(this.shortcutService, this.discordService, logger);
+    this.reviewService = new ReviewService(this.shortcutService, null, logger);
+    this.discordService = new DiscordService(appConfig, logger, this.reviewService);
+    
+    // Update the reviewService with the discordService reference
+    this.reviewService.setDiscordService(this.discordService);
     
     this.setupRoutes();
     this.setupDiscordEventHandlers();

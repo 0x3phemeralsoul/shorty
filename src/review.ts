@@ -5,13 +5,21 @@ import { CommandInteraction, CacheType } from 'discord.js';
 
 export class ReviewService {
   private shortcutService: ShortcutService;
-  private discordService: DiscordService;
+  private discordService: DiscordService | null;
   private logger: Logger;
 
-  constructor(shortcutService: ShortcutService, discordService: DiscordService, logger: Logger) {
+  constructor(shortcutService: ShortcutService, discordService: DiscordService | null, logger: Logger) {
     this.shortcutService = shortcutService;
     this.discordService = discordService;
     this.logger = logger;
+  }
+
+  /**
+   * Sets the Discord service after construction
+   * @param discordService - The Discord service to set
+   */
+  setDiscordService(discordService: DiscordService): void {
+    this.discordService = discordService;
   }
 
   /**

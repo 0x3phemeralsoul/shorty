@@ -1,11 +1,13 @@
 import { Client, CommandInteraction, CacheType } from 'discord.js';
 import { AppConfig, Logger } from './types';
+import { ReviewService } from './review';
 export declare class DiscordService {
     private client;
     private config;
     private logger;
+    private reviewService;
     private isReady;
-    constructor(config: AppConfig, logger: Logger);
+    constructor(config: AppConfig, logger: Logger, reviewService: ReviewService);
     /**
      * Sets up Discord client event handlers
      */

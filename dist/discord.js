@@ -6,13 +6,13 @@ class DiscordService {
     client;
     config;
     logger;
+    reviewService;
     isReady = false;
-    constructor(config, logger) {
+    constructor(config, logger, reviewService) {
+        this.client = new discord_js_1.Client({ intents: [discord_js_1.GatewayIntentBits.Guilds] });
         this.config = config;
         this.logger = logger;
-        this.client = new discord_js_1.Client({
-            intents: [discord_js_1.GatewayIntentBits.Guilds, discord_js_1.GatewayIntentBits.GuildMessages]
-        });
+        this.reviewService = reviewService;
         this.setupEventHandlers();
     }
     /**
@@ -46,9 +46,6 @@ class DiscordService {
                 new discord_js_1.SlashCommandBuilder()
                     .setName('review')
                     .setDescription('Get your assigned stories in the current iteration')
-                    .addUserOption(option => option.setName('user')
-                    .setDescription('The user to get stories for (defaults to yourself)')
-                    .setRequired(false))
             ];
             const rest = new discord_js_1.REST({ version: '10' }).setToken(this.config.env.DISCORD_TOKEN);
             if (this.client.user) {
@@ -73,22 +70,12 @@ class DiscordService {
      */
     async handleReviewCommand(interaction) {
         try {
-            await interaction.deferReply({ ephemeral: true });
-            const targetUser = interaction.options.get('user')?.user || interaction.user;
-            const discordUserId = targetUser.id;
-            this.logger.info(`Review command requested for Discord user: ${discordUserId}`);
-            // This will be called from the bot class which has access to the review service
-            // For now, we'll emit an event that the bot can listen to
-            this.client.emit('reviewCommand', interaction, discordUserId);
+            this.logger.info(`Review command requested for Discord user: ${interaction.user.id}`);
+            await this.reviewService.handleReviewCommand(interaction, interaction.user.id);
         }
         catch (error) {
             this.logger.error('Error handling review command:', error);
-            if (interaction.deferred) {
-                await interaction.editReply('Sorry, there was an error processing your request.');
-            }
-            else {
-                await interaction.reply({ content: 'Sorry, there was an error processing your request.', ephemeral: true });
-            }
+            await this.replyToInteraction(interaction, 'Sorry, there was an error processing your review command. Please try again later.');
         }
     }
     /**
