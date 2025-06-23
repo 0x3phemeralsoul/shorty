@@ -73,8 +73,9 @@ function createUserMappings(): Map<string, string> {
   users.set('6380d4da-0ae7-4ca5-a7f4-59ba335b4460', '@1041280647655850064'); // 3phy
   users.set('656f49bd-1c7a-42bb-874e-2a028317b06b', '@1157492699415457892'); // oddaf
   users.set('64d0f1b4-991e-4d95-b3fe-521a7cd53e04', '@1138099723807494295'); // p3th1um
-  users.set('67cf13d4-6934-4c04-a577-76ac892ea01f', '@351468603209547798'); // pedro
+  users.set('67cf13d4-f0d8-4dfe-898e-fcb90a063d9d', '@351468603209547798'); // pedro
   users.set('67b339e3-d196-42f1-8b85-4c4091f81366', '@871743111867564124'); // basset
+  
   
   return users;
 }
